@@ -1,130 +1,83 @@
 <template>
   <button
+    class="button-base"
     :class="[
-      'button-base', 
-      sizeClass, 
-      typeClass, 
-      { 
-        'disabled': isDisabled,
-        'actived': isActived
-      }
+      props.type, 
+      props.status
     ]"
     :disabled="isDisabled"
-    @click="handleClick"
-    @mouseenter="!isDisabled && (hover = true)"
-    @mouseleave="hover = false"
+    :active="active"
+    ref="buttonRef"
   >
     <iconpark-icon 
-      v-if="icon" 
-      :name="icon" 
-      :size="computedIconSize" 
-      :color="computedIconColor" 
+      v-if="icon"
+      :name="icon"
+      :size="computedIconSize"
     />
     <slot></slot>
   </button>
 </template>
 
-
-
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 
-const props = defineProps ({
-    type: {
-      type: String,
-      default: 'secondary',
-      validator: (value) => ['primary', 'secondary', 'tertiary'].includes(value),
-    },
-    size: {
-      type: String,
-      default: 'md',
-      validator: (value) => ['sm', 'md', 'lg', 'lgx'].includes(value),
-    },
-    icon: {
-      type: String,
-      default: '',
-    },
-    iconSize: {
-      type: Number,
-      default: 16,
-    },
-    isActive: {
-      type: Boolean,
-      default: false,
-    },
-    status: {
-      type: String,
-      default: '',
-      validator: (value) => ['', 'isDisabled', 'isActived'].includes(value)
-    }
-  });
+const buttonRef = ref(null)
 
-const hover = ref(false)
+const getSize = () => {
+  const classList = buttonRef.value?.classList
+  if (classList) {
+    if (classList.contains('lgx')) return 'lgx'
+    if (classList.contains('lg')) return 'lg'
+    if (classList.contains('md')) return 'md'
+    if (classList.contains('sm')) return 'sm'
+  }
+  return 'md'
+}
 
-// 计算类名
-const sizeClass = computed(() => `button-${props.size}`)
-const typeClass = computed(() => `button-${props.type}`)
-
-// 只保留 disabled 状态计算属性
-const isDisabled = computed(() => props.status === 'isDisabled');
-const isActived = computed(() => props.status === 'isActived');
-
-// 动态计算图标大小
 const computedIconSize = computed(() => {
-  switch (props.size) {
-    case 'sm':
-      return 16;
-    case 'md':
-      return 16;
-    case 'lg':
-      return 16;
-    case 'lgx':
-      return 18;
-    default:
-      return 16;
+  const size = getSize()
+  switch (size) {
+    case 'sm': return 16;
+    case 'md': return 16;
+    case 'lg': return 16;
+    case 'lgx': return 20;
+    default: return 16;
+  }
+});
+
+const observer = new MutationObserver(() => {
+  computedIconSize.value = getSize()
+})
+
+onMounted(() => {
+  if (buttonRef.value) {
+    observer.observe(buttonRef.value, {
+      attributes: true,
+      attributeFilter: ['class']
+    })
   }
 })
 
-// 动态计算图标颜色
-const computedIconColor = computed(() => {
-  if (isDisabled.value) {
-    return 'var(--color-text-disabled)';
-  } else if (isActived.value || props.isActive) {
-    // 激活状态的颜色
-    switch (props.type) {
-      case 'primary':
-      case 'secondary':
-        return 'var(--color-text-invert)';
-      case 'tertiary':
-        return 'var(--color-text-brand)';
-      default:
-        return 'var(--color-black)';
-    }
-  } else if (hover.value) {
-    // 鼠标悬停时的颜色
-    switch (props.type) {
-      case 'primary':
-        return 'var(--color-text-brand)';
-      case 'secondary':
-        return 'var(--color-text-invert)';
-      case 'tertiary':
-        return 'var(--color-text-brand)';
-      default:
-        return 'var(--color-black)';
-    }
-  } else {
-    // 默认颜色
-    switch (props.type) {
-      case 'primary':
-        return 'var(--color-text-brand)';
-      case 'secondary':
-        return 'var(--color-text-brand)';
-      case 'tertiary':
-        return 'var(--color-text-primary)';
-      default:
-        return 'var(--color-black)';
-    }
+const props = defineProps({
+  type: {
+    type: String,
+    required: true,
+    validator: (value) => ['primary', 'secondary', 'tertiary'].includes(value),
+  },
+  icon: {
+    type: String,
+    default: '',
   }
+});
+
+const hover = ref(false)
+const buttonClasses = computed(() => {
+  const classes = ['button-base'];
+  
+  classes.push(props.type); 
+  classes.push(props.size);
+  
+  return classes.join(' ');
 });
 
 const handleClick = () => {
@@ -133,17 +86,7 @@ const handleClick = () => {
 
 </script>
 
-
-
-
-<style scoped>
-@import '/src/styles/tokens.css';
-
-/* formatting model --- positioning schemes / offsets / z-indexes / display / ...  */
-/* box model --- sizes / margins / paddings / borders / ...  */
-/* typographic --- font / aligns / text styles / ... */
-/* visual --- colors / shadows / gradients / ... */
-
+<style lang="scss">
 .button-base {
   position: relative;
   z-index: 1;
@@ -158,99 +101,99 @@ const handleClick = () => {
   text-align: center;
   transition: all var(--transition-default);
 
-  &.actived,
-  &:active {
-  /* 当前设计稿设定只有 Primary 样式的按钮有 actived 状态 */
-    &.button-primary {
-      background: var(--color-button-interaction-bg-brand);
-      color: var(--color-text-invert);
-    }
+  &.is-circle {
+    aspect-ratio: 1;
+    padding: 0;
+    width: auto;
   }
 
-  &:hover {
-    &.button-primary {
-      background: var(--color-interaction-bg-index-5);
+  &.sm {
+    gap: var(--gapping-sm);
+    height: var(--size-sm);
+    padding: 0 var(--spacing-sm);
+    font-size: var(--font-body-size);
+    line-height: var(--font-body-line-height);
+  }
+  &.md {
+    gap: var(--gapping-md);
+    height: var(--size-md);
+    padding: 0 var(--spacing-md);
+    font-size: var(--font-body-size);
+    line-height: var(--font-body-line-height);
+  }
+  &.lg {
+    gap: var(--gapping-lg);
+    height: var(--size-lg);
+    padding: 0 var(--spacing-lg);
+    font-size: var(--font-body-size);
+    line-height: var(--font-body-line-height);
+  }
+  &.lgx {
+    gap: var(--gapping-lgx);
+    height: var(--size-lgx);
+    padding: 0 var(--spacing-lgx);
+    font-size: var(--font-h3-size);
+    font-weight: bold;
+    line-height: var(--font-h1-line-height);
+  }
+
+  // 设计稿设定当前只有 primary 样式有 active 状态
+  &.primary {
+    color: var(--color-text-brand);
+    background: var(--color-interactive-bg-index-4);
+
+    &:hover {
+      background: var(--color-interactive-bg-index-5);
     }
-    &.button-secondary {
+
+    &:active {
+      background: var(--color-button-interactive-bg-brand);
+      color: var(--color-text-invert);
+    }
+
+  }
+  &.secondary {
+    border: 1px solid var(--color-brand);
+    color: var(--color-text-brand);
+
+    &:hover {
       border: none;
       color: var(--color-text-invert);
-      background: var(--color-button-interaction-bg-brand);
+      background: var(--color-button-interactive-bg-brand);
     }
-    &.button-tertiary {
-      color: var(--color-text-brand);
-      background: var(--color-interaction-bg-index-2);
+
+  }
+  &.tertiary {
+      border: none;
+      color: var(--color-text-primary);
+
+      &:hover {
+        color: var(--color-text-brand);
+        background: var(--color-interactive-bg-index-2);
     }
+
   }
 
-  &.disabled {
+  &:disabled {
     cursor: not-allowed;
     pointer-events: none;
 
-    &.button-primary {
+    &.primary {
+      border: 1px solid var(--color-stroke-divider-2);
+      color: var(--color-text-disabled);
       background: var(--color-bg-index-1);
-      border-color: var(--color-stroke-divider-1);
+    }
+    &.secondary {
+      border: 1px solid var(--color-stroke-divider-1);
       color: var(--color-text-disabled);
     }
-    
-    &.button-secondary {
-      border-color: var(--color-stroke-divider-1);
+    &.tertiary {
+      border: none;
       color: var(--color-text-disabled);
     }
-    
-    &.button-tertiary {
-      color: var(--color-text-disabled);
-    }
+
   }
 
-}
-
-.button-sm {
-  gap: var(--gapping-sm);
-  height: var(--size-sm);
-  padding: 0 var(--spacing-sm);
-  font-size: var(--font-body-size);
-  line-height: var(--font-body-line-height);
-}
-
-.button-md {
-  gap: var(--gapping-md);
-  height: var(--size-md);
-  padding: 0 var(--spacing-md);
-  font-size: var(--font-body-size);
-  line-height: var(--font-body-line-height);
-}
-
-.button-lg {
-  gap: var(--gapping-lg);
-  height: var(--size-lg);
-  padding: 0 var(--spacing-lg);
-  font-size: var(--font-body-size);
-  line-height: var(--font-body-line-height);
-}
-
-.button-lgx {
-  gap: var(--gapping-lgx);
-  height: var(--size-lgx);
-  padding: 0 var(--spacing-lgx);
-  font-size: var(--font-h1-size);
-  font-weight: bold;
-  line-height: var(--font-h1-line-height);
-}
-
-.button-primary {
-  position: relative;
-  border: 1px solid var(--color-stroke-divider-1);
-  color: var(--color-text-brand);
-  background: var(--color-interaction-bg-index-4);
-}
-
-.button-secondary {
-  color: var(--color-text-brand);
-  border: 1px solid var(--color-brand);
-}
-
-.button-tertiary {
-  color: var(--color-text-primary);
 }
 
 </style>

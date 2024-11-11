@@ -1,0 +1,74 @@
+
+.blendstroke {
+  position: relative;
+  isolation: isolate;
+
+    // 当父级元素处于 Disabled 状态时，渐变描边会自动隐藏
+    &.isDisabled::before,
+    &[disabled]::before,
+    &:disabled::before,
+    .isDisabled &::before,
+    [disabled] &::before {
+      display: none;
+    }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 99;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: var(--color-stroke-blend) border-box;
+    mix-blend-mode: overlay;
+    mask:
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0);
+    mask-composite: destination-out;
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+.blendstroke-interactive {
+  position: relative;
+  isolation: isolate;
+
+    // 当父级元素处于 Disabled 状态时，隐藏渐变描边
+    &.isDisabled::before,
+    &[disabled]::before,
+    &:disabled::before,
+    .isDisabled &::before,
+    [disabled] &::before {
+      display: none;
+    }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 99;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: var(--color-stroke-blend) border-box;
+    mix-blend-mode: overlay;
+    mask:
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0);
+    mask-composite: destination-out;
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    background: var(--color-interactive-stroke-blend) border-box;
+  }
+}

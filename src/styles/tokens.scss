@@ -23,6 +23,7 @@
     --color-brand-70: rgba(var(--color-green-a-rgb), .7);
     --color-brand-80: rgba(var(--color-green-a-rgb), .8);
     --color-brand-90: rgba(var(--color-green-a-rgb), .9);
+    --color-brand-100: rgba(var(--color-green-a-rgb), 1);
     --color-success: var(--color-green-b);
     --color-success-rgb: var(--color-green-b-rgb);
     --color-success-hover: var(--color-green-a);
@@ -35,6 +36,7 @@
     --color-success-70: rgba(var(--color-success-rgb), .7);
     --color-success-80: rgba(var(--color-success-rgb), .8);
     --color-success-90: rgba(var(--color-success-rgb), .9);
+    --color-success-100: rgba(var(--color-success-rgb), 1);
     --color-warning: var(--color-yellow-b);
     --color-warning-rgb: var(--color-yellow-b-rgb);
     --color-warning-hover: var(--color-yellow-a);
@@ -47,6 +49,7 @@
     --color-warning-70: rgba(var(--color-warning-rgb), .7);
     --color-warning-80: rgba(var(--color-warning-rgb), .8);
     --color-warning-90: rgba(var(--color-warning-rgb), .9);
+    --color-warning-100: rgba(var(--color-warning-rgb), 1);
     --color-danger: var(--color-red-b);
     --color-danger-rgb: var(--color-red-b-rgb);
     --color-danger-hover: var(--color-red-a);
@@ -59,6 +62,7 @@
     --color-danger-70: rgba(var(--color-danger-rgb), .7);
     --color-danger-80: rgba(var(--color-danger-rgb), .8);
     --color-danger-90: rgba(var(--color-danger-rgb), .9);
+    --color-danger-100: rgba(var(--color-danger-rgb), 1);
     --color-white: #ffffff;
     --color-white-rgb: 255, 255, 255;
     --color-white-10: rgba(var(--color-white-rgb), .1);
@@ -70,6 +74,7 @@
     --color-white-70: rgba(var(--color-white-rgb), .7);
     --color-white-80: rgba(var(--color-white-rgb), .8);
     --color-white-90: rgba(var(--color-white-rgb), .9);
+    --color-white-100: rgba(var(--color-white-rgb), 1);
     --color-black: #000000;
     --color-black-rgb: 0, 0, 0;
     --color-black-10: rgba(var(--color-black-rgb), .1);
@@ -81,6 +86,7 @@
     --color-black-70: rgba(var(--color-black-rgb), .7);
     --color-black-80: rgba(var(--color-black-rgb), .8);
     --color-black-90: rgba(var(--color-black-rgb), .9);
+    --color-black-100: rgba(var(--color-black-rgb), 1);
 
     --color-text-invert: var(--color-black);
     --color-text-brand: var(--color-brand);
@@ -97,6 +103,8 @@
     --color-stroke-divider-1: rgba(var(--color-white-rgb), .06);
     --color-stroke-divider-2: rgba(var(--color-white-rgb), .12);
     --color-stroke-divider-3: rgba(var(--color-white-rgb), .18);
+
+    // 渐变描边 Normal
     --color-stroke-blend:
             linear-gradient(
                     180deg,
@@ -106,47 +114,30 @@
                     var(--color-white-30) 100%
             );
 
-    --color-interaction-bg-index-1: var(--color-black-20);
-    --color-interaction-bg-index-2: var(--color-black-30);
-    --color-interaction-bg-index-3:
-            radial-gradient(
-                    146.76% 100% at 50% 100%,
-                    var(--color-brand-50) 0%,
-                    var(--color-success-10) 100%
-            );
-    --color-interaction-bg-index-4:
-            radial-gradient(
-                    146.76% 100% at 50% 0%,
-                    var(--color-brand-50) 0%,
-                    var(--color-success-30) 50%,
-                    var(--color-success-10) 100%
-            );
-    /*--color-interaction-bg-index-5-blend:
-            radial-gradient(
-                    100% 100% at 50% 0%,
-                    var(--color-white-90) 0%,
-                    var(--color-white-10) 100%
-            );*/
-    --color-interaction-bg-index-5:
-            radial-gradient(
-                    146.76% 100% at 50% 0%,
-                    var(--color-brand) 0%,
-                    var(--color-success-50) 50%,
-                    var(--color-success-10) 100%
-            );
-
-    --color-interaction-stroke-blend:
+    --color-interactive-bg-index-1: var(--color-black-20);
+    --color-interactive-bg-index-2: var(--color-black-30);
+//     --color-interactive-bg-index-3: radial-gradient(146.76% 100% at 50% 100%, #3F6F56 0%, #182B22 100%);
+//     --color-interactive-bg-index-4: radial-gradient(146.76% 100% at 50% 0%, #498364 0%, #182B22 100%);
+//     --color-interactive-bg-index-5: radial-gradient(146.76% 100% at 50% 0%, #68BF8A 0%, #213B2F 100%);
+        --color-interactive-bg-index-3: radial-gradient(146.76% 100% at 50% 100%, rgba(114, 211, 159, 0.50) 0%, rgba(89, 214, 147, 0.10) 100%), 
+                                        linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.30) 100%);
+        --color-interactive-bg-index-4: radial-gradient(146.76% 100% at 50% 0%, rgba(114, 211, 159, 0.60) 0%, rgba(89, 214, 147, 0.10) 100%), 
+                                        linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.30) 100%);
+        --color-interactive-bg-index-5: radial-gradient(146.76% 100% at 50% 0%, rgba(114, 211, 151, 0.90) 0%, rgba(89, 214, 147, 0.15) 100%), 
+                                        linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.30) 100%);
+        // 渐变描边 Strong
+    --color-interactive-stroke-blend:
             linear-gradient(
                     180deg,
-                    var(--color-white) 0%,
+                    var(--color-white-100) 0%,
                     var(--color-white-10) 33%,
                     var(--color-white-10) 66%,
                     var(--color-white-40) 100%
             );
 
-    --color-button-interaction-bg-brand: linear-gradient(180deg, var(--color-brand) 0%, var(--color-success) 100%);
-    --color-button-interaction-bg-warning: linear-gradient(180deg, var(--color-warning-hover) 0%, var(--color-warning) 100%);
-    --color-button-interaction-bg-danger: linear-gradient(180deg, var(--color-danger-hover) 0%, var(--color-danger) 100%);
+    --color-button-interactive-bg-brand: linear-gradient(180deg, var(--color-brand) 0%, var(--color-success) 100%);
+    --color-button-interactive-bg-warning: linear-gradient(180deg, var(--color-warning-hover) 0%, var(--color-warning) 100%);
+    --color-button-interactive-bg-danger: linear-gradient(180deg, var(--color-danger-hover) 0%, var(--color-danger) 100%);
 
 
     /*      ----        */
