@@ -2,14 +2,14 @@
   position: relative;
   isolation: isolate;
 
-    // 当父级元素处于 Disabled 状态时，渐变描边会自动隐藏
-    &.isDisabled::before,
-    &[disabled]::before,
-    &:disabled::before,
-    .isDisabled &::before,
-    [disabled] &::before {
-      display: none;
-    }
+  // 当父级元素处于 Disabled 状态时，渐变描边会自动隐藏
+  &.isDisabled::before,
+  &[disabled]::before,
+  &:disabled::before,
+  .isDisabled &::before,
+  [disabled] &::before {
+    display: none;
+  }
 
   &::before {
     content: '';
@@ -37,14 +37,14 @@
   position: relative;
   isolation: isolate;
 
-    // 当父级元素处于 Disabled 状态时，隐藏渐变描边
-    &.isDisabled::before,
-    &[disabled]::before,
-    &:disabled::before,
-    .isDisabled &::before,
-    [disabled] &::before {
-      display: none;
-    }
+  // 当父级元素处于 Disabled 状态时，隐藏渐变描边
+  &.isDisabled::before,
+  &[disabled]::before,
+  &:disabled::before,
+  .isDisabled &::before,
+  [disabled] &::before {
+    display: none;
+  }
 
   &::before {
     content: '';

@@ -108,33 +108,33 @@ const handleClick = () => {
   }
 
   &.sm {
-    gap: var(--seq-gapping-sm);
-    height: var(--seq-size-sm);
-    padding: 0 var(--seq-spacing-comp-x-sm);
-    font-size: var(--seq-font-body-size);
-    line-height: var(--seq-font-body-line-height);
+    gap: var(--seq-gap-comp-sm);
+    height: var(--seq-size-comp-sm);
+    padding: 0 var(--seq-space-comp-x-sm);
+    font-size: var(--seq-font-size-body);
+    line-height: var(--seq-font-line-height-body);
   }
   &.md {
-    gap: var(--seq-gapping-md);
-    height: var(--seq-size-md);
-    padding: 0 var(--seq-spacing-comp-x-md);
-    font-size: var(--seq-font-body-size);
-    line-height: var(--seq-font-body-line-height);
+    gap: var(--seq-gap-comp-md);
+    height: var(--seq-size-comp-md);
+    padding: 0 var(--seq-space-comp-x-md);
+    font-size: var(--seq-font-size-body);
+    line-height: var(--seq-font-line-height-body);
   }
   &.lg {
-    gap: var(--seq-gapping-lg);
-    height: var(--seq-size-lg);
-    padding: 0 var(--seq-spacing-comp-x-lg);
-    font-size: var(--seq-font-body-size);
-    line-height: var(--seq-font-body-line-height);
+    gap: var(--seq-gap-comp-lg);
+    height: var(--seq-size-comp-lg);
+    padding: 0 var(--seq-space-comp-x-lg);
+    font-size: var(--seq-font-size-body);
+    line-height: var(--seq-font-line-height-body);
   }
   &.lgx {
-    gap: var(--seq-gapping-lgx);
-    height: var(--seq-size-lgx);
-    padding: 0 var(--seq-spacing-comp-x-lgx);
-    font-size: var(--seq-font-h3-size);
+    gap: var(--seq-gap-comp-lgx);
+    height: var(--seq-size-comp-lgx);
+    padding: 0 var(--seq-space-comp-x-lgx);
+    font-size: var(--seq-font-size-h3);
     font-weight: bold;
-    line-height: var(--seq-font-h1-line-height);
+    line-height: var(--seq-font-line-height-h3);
   }
 
   // 设计稿设定当前只有 primary 样式有 active 状态

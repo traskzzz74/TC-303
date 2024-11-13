@@ -296,30 +296,30 @@
 
           <div class="item-set">
             <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="sm" placeholder="请选择" />
+              <seq-select v-model="selected" :options="options" size="sm" placeholder="Select" />
               <p>sm</p>
             </div>
             <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="md" placeholder="请选择" />
+              <seq-select v-model="selected" :options="options" size="md" placeholder="Select" />
               <p>md</p>
             </div>
             <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="lg" placeholder="请选择" />
+              <seq-select v-model="selected" :options="options" size="lg" placeholder="Select" />
               <p>lg</p>
             </div>
           </div>
 
           <div class="item-set">
             <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="sm" placeholder="请选择" disabled />
+              <seq-select v-model="selected" :options="options" size="sm" placeholder="Select" disabled />
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="md" placeholder="请选择" disabled />
+              <seq-select v-model="selected" :options="options" size="md" placeholder="Select" disabled />
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="lg" placeholder="请选择" disabled />
+              <seq-select v-model="selected" :options="options" size="lg" placeholder="Select" disabled />
               <p>--disabled</p>
             </div>
           </div>
@@ -344,10 +344,10 @@ export default {
     return {
       selected: '',
       options: [
-        { label: '选项1', value: '1' },
-        { label: '选项2', value: '2' },
-        { label: '选项3', value: '3' },
-        { label: '选项4', value: '4' }
+        { label: 'Option1', value: '1' },
+        { label: 'Option2', value: '2' },
+        { label: 'Option3', value: '3' },
+        { label: 'Option4', value: '4' }
       ]
     }
   }

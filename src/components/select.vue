@@ -30,11 +30,9 @@
           class="seq-select-option"
           :class="{ 
             'is-selected': modelValue === option.value,
-            'blendstroke': currentHoverValue === option.value 
+            'blendstroke': modelValue === option.value 
           }"
           @click="handleSelect(option)"
-          @mouseenter="handleOptionHover(option)"
-          @mouseleave="handleOptionLeave"
         >
           {{ option.label }}
         </li>
@@ -62,7 +60,7 @@ export default {
     size: {
       type: String,
       default: 'md',
-      validator: (value) => ['sm', 'md', 'lg', 'lgx'].includes(value)
+      validator: (value) => ['sm', 'md', 'lg'].includes(value)
     },
     disabled: {
       type: Boolean,
@@ -105,47 +103,32 @@ export default {
 .seq-select {
   position: relative;
   display: inline-block;
-  width: 100%;
-  min-width: 200px;
-  font-family: var(--seq-font-family);
+  min-width: 120px;
   
   &-sm {
     .seq-select-trigger {
-      height: var(--seq-size-sm);
-      font-size: var(--seq-font-size-sm);
-    }
-    .seq-select-arrow {
-      font-size: 14px;
+      gap: var(--seq-gap-comp-sm);
+      padding: 0 var(--seq-space-comp-x-sm);
+      border-radius: var(--seq-radius-66);
+      height: var(--seq-size-comp-sm);
     }
   }
 
   &-md {
     .seq-select-trigger {
-      height: var(--seq-size-md);
-      font-size: var(--seq-font-size-md);
-    }
-    .seq-select-arrow {
-      font-size: 16px;
+      gap: var(--seq-gap-comp-md);
+      padding: 0 var(--seq-space-comp-x-md);
+      border-radius: var(--seq-radius-83);
+      height: var(--seq-size-comp-md);
     }
   }
 
   &-lg {
     .seq-select-trigger {
-      height: var(--seq-size-lg);
-      font-size: var(--seq-font-size-lg);
-    }
-    .seq-select-arrow {
-      font-size: 18px;
-    }
-  }
-
-  &-lgx {
-    .seq-select-trigger {
-      height: var(--seq-size-lgx);
-      font-size: var(--seq-font-size-lg);
-    }
-    .seq-select-arrow {
-      font-size: 20px;
+      gap: var(--seq-gap-comp-lg);
+      padding: 0 var(--seq-space-comp-x-lg);
+      border-radius: var(--seq-radius-100);
+      height: var(--seq-size-comp-lg);
     }
   }
 
@@ -153,42 +136,33 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    padding: 0 var(--seq-spacing-sm);
-    background: var(--seq-color-white);
-    border: 1px solid var(--seq-border-color);
-    border-radius: var(--seq-border-radius);
+    background: var(--seq-color-bg-index-1);
+    border: 1px solid var(--seq-color-stroke-divider-2);
     cursor: pointer;
-    transition: all var(--seq-transition-duration) var(--seq-transition-timing-function);
-    outline: none;
 
     &:hover {
-      border-color: var(--seq-color-primary);
-    }
-
-    &:active {
-      border-color: var(--seq-color-primary);
+      border-color: var(--seq-color-brand);
     }
   }
 
   &-label {
     flex: 1;
-    color: var(--seq-color-text-regular);
+    color: var(--seq-color-text-priarmy);
+    font-size: var(--seq-font-size-body);
+    line-height: var(--seq-font-line-height-body);
     overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   &-arrow {
-    margin-left: var(--seq-spacing-xs);
-    color: var(--seq-color-text-secondary);
-    transition: transform var(--seq-transition-duration) var(--seq-transition-timing-function);
+    color: var(--seq-color-brand);
   }
 
   &.is-selected {
     .seq-select-trigger {
-      border-color: var(--seq-color-primary);
+      border-color: var(--seq-color-brand);
     }
+
     .seq-select-arrow {
       transform: rotate(180deg);
     }
@@ -196,34 +170,29 @@ export default {
 
   &.is-disabled {
     .seq-select-trigger {
-      background-color: var(--seq-color-disabled);
-      border-color: var(--seq-border-color);
-      color: var(--seq-color-text-placeholder);
+      border-color: var(--seq-color-stroke-divider-1);
+      color: var(--seq-color-text-tertiary);
       cursor: not-allowed;
-
-      &:hover {
-        border-color: var(--seq-border-color);
-      }
     }
 
     .seq-select-arrow {
-      color: var(--seq-color-text-placeholder);
-      transform: none;
+      color: var(--seq-color-text-tertiary);
     }
   }
 
   &-dropdown {
     position: absolute;
-    top: calc(100% + var(--seq-spacing-xs));
+    top: calc(100% + var(--seq-space-global-1));
     left: 0;
     width: 100%;
-    background: var(--seq-color-white);
-    border: 1px solid var(--seq-border-color);
-    border-radius: var(--seq-border-radius);
-    box-shadow: var(--seq-shadow-md);
-    z-index: var(--seq-z-index-dropdown);
+    min-width: inherit;
+    background: var(--seq-color-bg-index-1);
+    backdrop-filter: var(--seq-effect-blur-sm);
+    border: 1px solid var(--seq-color-stroke-divider-1);
+    border-radius: var(--seq-radius-100);
+    z-index: 99;
     transform-origin: top;
-    animation: dropdownIn var(--seq-transition-duration) var(--seq-transition-timing-function);
+    animation: dropdownIn var(--seq-transition-curve);
   }
 
   @keyframes dropdownIn {
@@ -239,41 +208,25 @@ export default {
 
   &-options {
     margin: 0;
-    padding: var(--seq-spacing-xs) 0;
     list-style: none;
-    max-height: 250px;
-    overflow-y: auto;
   }
 
   &-option {
-    padding: var(--seq-spacing-sm) var(--seq-spacing-md);
-    font-size: var(--seq-font-size-md);
-    color: var(--seq-color-text-regular);
+    padding: var(--seq-space-comp-y-md) var(--seq-space-comp-x-md);
+    border-radius: var(--seq-radius-100);
+    font-size: var(--seq-font-size-body);
+    line-height: var(--seq-font-line-height-body);
+    color: var(--seq-color-text-priamry);
     cursor: pointer;
-    transition: all var(--seq-transition-duration) var(--seq-transition-timing-function);
 
     &:hover {
-      background-color: var(--seq-color-primary-light);
+      background: var(--seq-color-interactive-bg-index-1);
     }
 
     &.is-selected {
-      color: var(--seq-color-primary);
-      font-weight: 500;
-      background-color: var(--seq-color-primary-light);
+      background: var(--seq-color-interactive-bg-index-3);
     }
+}
 
-    &.blendstroke {
-      position: relative;
-      &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border: 2px solid var(--seq-color-primary);
-        border-radius: var(--seq-border-radius-sm);
-        opacity: 0.3;
-        pointer-events: none;
-      }
-    }
-  }
 }
 </style> 

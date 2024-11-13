@@ -106,13 +106,13 @@
 
     // 渐变描边 Normal
     --seq-color-stroke-blend:
-            linear-gradient(
-                    180deg,
-                    var(--seq-color-white-60) 0%,
-                    var(--seq-color-white-10) 33%,
-                    var(--seq-color-white-10) 66%,
-                    var(--seq-color-white-30) 100%
-            );
+        linear-gradient(
+            180deg,
+            var(--seq-color-white-60) 0%,
+            var(--seq-color-white-10) 33%,
+            var(--seq-color-white-10) 66%,
+            var(--seq-color-white-30) 100%
+        );
 
     --seq-color-interactive-bg-index-1: var(--seq-color-black-20);
     --seq-color-interactive-bg-index-2: var(--seq-color-black-30);
@@ -122,47 +122,58 @@
                                         linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.30) 100%);
     --seq-color-interactive-bg-index-5: radial-gradient(146.76% 100% at 50% 0%, rgba(114, 211, 151, 0.90) 0%, rgba(89, 214, 147, 0.15) 100%), 
                                         linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.30) 100%);
-        // 渐变描边 Strong
+    // 渐变描边 Strong
     --seq-color-interactive-stroke-blend:
-            linear-gradient(
-                    180deg,
-                    var(--seq-color-white-100) 0%,
-                    var(--seq-color-white-10) 33%,
-                    var(--seq-color-white-10) 66%,
-                    var(--seq-color-white-40) 100%
-            );
+        linear-gradient(
+            180deg,
+            var(--seq-color-white-100) 0%,
+            var(--seq-color-white-10) 33%,
+            var(--seq-color-white-10) 66%,
+            var(--seq-color-white-40) 100%
+        );
 
     --seq-color-button-interactive-bg-brand: linear-gradient(180deg, var(--seq-color-brand) 0%, var(--seq-color-success) 100%);
     --seq-color-button-interactive-bg-warning: linear-gradient(180deg, var(--seq-color-warning-hover) 0%, var(--seq-color-warning) 100%);
     --seq-color-button-interactive-bg-danger: linear-gradient(180deg, var(--seq-color-danger-hover) 0%, var(--seq-color-danger) 100%);
 
+    /* comp 仅为组件使用 */
+    /* size-comp 仅作用于组件的 height */
+    --seq-size-comp-sm: 1.5rem;
+    --seq-size-comp-md: 1.75rem;
+    --seq-size-comp-lg: 2.25rem;
+    --seq-size-comp-lgx: 3rem;
 
-    /*      ----        */
+    --seq-space-comp-x-sm: .5rem;
+    --seq-space-comp-x-md: .75rem;
+    --seq-space-comp-x-lg: 1rem;
+    --seq-space-comp-x-lgx: 1.25rem;
 
-    --seq-size-sm: 1.5rem;
-    --seq-size-md: 1.75rem;
-    --seq-size-lg: 2.25rem;
-    --seq-size-lgx: 3rem;
+    --seq-space-comp-y-sm: .25rem;
+    --seq-space-comp-y-md: .375rem;
+    --seq-space-comp-y-lg: .625rem;
+    --seq-space-comp-y-lgx: .75rem;
 
-    --seq-spacing-comp-x-sm: .5rem;
-    --seq-spacing-comp-x-md: .75rem;
-    --seq-spacing-comp-x-lg: 1rem;
-    --seq-spacing-comp-x-lgx: 1.25rem;
+    --seq-gap-comp-sm: .25rem;
+    --seq-gap-comp-md: .5rem;
+    --seq-gap-comp-lg: .75rem;
+    --seq-gap-comp-lgx: .75rem;
 
-    --seq-spacing-comp-y-sm: .25rem;
-    --seq-spacing-comp-y-md: .375rem;
-    --seq-spacing-comp-y-lg: .625rem;
-    --seq-spacing-comp-y-lgx: .75rem;
+    /* 全局 */
+    --seq-space-global-1: .25rem;
+    --seq-space-global-2: .5rem;
+    --seq-space-global-3: .75rem;
+    --seq-space-global-4: 1rem;
+    --seq-space-global-5: 1.25rem;
+    --seq-space-global-8: 2rem;
+    --seq-space-global-10: 2.5rem;
 
-    --seq-spacing-sm: .5rem;
-    --seq-spacing-md: .75rem;
-    --seq-spacing-lg: 1rem;
-    --seq-spacing-lgx: 1.25rem;
-
-    --seq-gapping-sm: .25rem;
-    --seq-gapping-md: .5rem;
-    --seq-gapping-lg: .75rem;
-    --seq-gapping-lgx: .75rem;
+    --seq-gap-global-1: .25rem;
+    --seq-gap-global-2: .5rem;
+    --seq-gap-global-3: .75rem;
+    --seq-gap-global-4: 1rem;
+    --seq-gap-global-5: 1.25rem;
+    --seq-gap-global-8: 2rem;
+    --seq-gap-global-10: 2.5rem;
 
     --seq-radius-0: 0rem;
     --seq-radius-33: .25rem;
@@ -173,16 +184,21 @@
     --seq-radius-300: 2.25rem;
     --seq-radius-400: 3rem;
 
-    --seq-font-footnote-size: .75rem;
-    --seq-font-footnote-line-height: 1.25rem;
-    --seq-font-body-size: .875rem;
-    --seq-font-body-line-height: 1.375rem;
-    --seq-font-h1-size: 1.5rem;
-    --seq-font-h1-line-height: 2rem;
-    --seq-font-h2-size: 1.25rem;
-    --seq-font-h2-line-height: 1.75rem;
-    --seq-font-h3-size: 1rem;
-    --seq-font-h3-line-height: 1.5rem;
+    --seq-font-size-footnote: .75rem;
+    --seq-font-size-body: .875rem;
+    --seq-font-size-h3: 1rem;
+    --seq-font-size-h2: 1.25rem;
+    --seq-font-size-h1: 1.5rem;
+
+    --seq-font-line-height-footnote: 1.25rem;
+    --seq-font-line-height-body: 1.375rem;
+    --seq-font-line-height-h3: 1.5rem;
+    --seq-font-line-height-h2: 1.75rem;
+    --seq-font-line-height-h1: 2rem;
+
+    --seq-effect-blur-sm: blur(.75rem);
+    --seq-effect-blur-md: blur(1.5rem);
+    --seq-effect-blur-lg: blur(2.25rem);
 
     --seq-transition-default: .3s ease;
     --seq-transition-curve: .3s ease-in-out;
