@@ -97,9 +97,9 @@ const handleClick = () => {
   overflow: hidden;
   cursor: pointer;
   border: none;
-  border-radius: var(--radius-400);
+  border-radius: var(--seq-radius-400);
   text-align: center;
-  transition: all var(--transition-default);
+  transition: all var(--seq-transition-default);
 
   &.is-circle {
     aspect-ratio: 1;
@@ -108,68 +108,68 @@ const handleClick = () => {
   }
 
   &.sm {
-    gap: var(--gapping-sm);
-    height: var(--size-sm);
-    padding: 0 var(--spacing-sm);
-    font-size: var(--font-body-size);
-    line-height: var(--font-body-line-height);
+    gap: var(--seq-gapping-sm);
+    height: var(--seq-size-sm);
+    padding: 0 var(--seq-spacing-comp-x-sm);
+    font-size: var(--seq-font-body-size);
+    line-height: var(--seq-font-body-line-height);
   }
   &.md {
-    gap: var(--gapping-md);
-    height: var(--size-md);
-    padding: 0 var(--spacing-md);
-    font-size: var(--font-body-size);
-    line-height: var(--font-body-line-height);
+    gap: var(--seq-gapping-md);
+    height: var(--seq-size-md);
+    padding: 0 var(--seq-spacing-comp-x-md);
+    font-size: var(--seq-font-body-size);
+    line-height: var(--seq-font-body-line-height);
   }
   &.lg {
-    gap: var(--gapping-lg);
-    height: var(--size-lg);
-    padding: 0 var(--spacing-lg);
-    font-size: var(--font-body-size);
-    line-height: var(--font-body-line-height);
+    gap: var(--seq-gapping-lg);
+    height: var(--seq-size-lg);
+    padding: 0 var(--seq-spacing-comp-x-lg);
+    font-size: var(--seq-font-body-size);
+    line-height: var(--seq-font-body-line-height);
   }
   &.lgx {
-    gap: var(--gapping-lgx);
-    height: var(--size-lgx);
-    padding: 0 var(--spacing-lgx);
-    font-size: var(--font-h3-size);
+    gap: var(--seq-gapping-lgx);
+    height: var(--seq-size-lgx);
+    padding: 0 var(--seq-spacing-comp-x-lgx);
+    font-size: var(--seq-font-h3-size);
     font-weight: bold;
-    line-height: var(--font-h1-line-height);
+    line-height: var(--seq-font-h1-line-height);
   }
 
   // 设计稿设定当前只有 primary 样式有 active 状态
   &.primary {
-    color: var(--color-text-brand);
-    background: var(--color-interactive-bg-index-4);
+    color: var(--seq-color-text-brand);
+    background: var(--seq-color-interactive-bg-index-4);
 
     &:hover {
-      background: var(--color-interactive-bg-index-5);
+      background: var(--seq-color-interactive-bg-index-5);
     }
 
     &:active {
-      background: var(--color-button-interactive-bg-brand);
-      color: var(--color-text-invert);
+      background: var(--seq-color-button-interactive-bg-brand);
+      color: var(--seq-color-text-invert);
     }
 
   }
   &.secondary {
-    border: 1px solid var(--color-brand);
-    color: var(--color-text-brand);
+    border: 1px solid var(--seq-color-brand);
+    color: var(--seq-color-text-brand);
 
     &:hover {
       border: none;
-      color: var(--color-text-invert);
-      background: var(--color-button-interactive-bg-brand);
+      color: var(--seq-color-text-invert);
+      background: var(--seq-color-button-interactive-bg-brand);
     }
 
   }
   &.tertiary {
       border: none;
-      color: var(--color-text-primary);
+      color: var(--seq-color-text-primary);
 
       &:hover {
-        color: var(--color-text-brand);
-        background: var(--color-interactive-bg-index-2);
+        color: var(--seq-color-text-brand);
+        background: var(--seq-color-interactive-bg-index-2);
     }
 
   }
@@ -179,17 +179,17 @@ const handleClick = () => {
     pointer-events: none;
 
     &.primary {
-      border: 1px solid var(--color-stroke-divider-2);
-      color: var(--color-text-disabled);
-      background: var(--color-bg-index-1);
+      border: 1px solid var(--seq-color-stroke-divider-1);
+      color: var(--seq-color-text-disabled);
+      background: var(--seq-color-bg-index-1);
     }
     &.secondary {
-      border: 1px solid var(--color-stroke-divider-1);
-      color: var(--color-text-disabled);
+      border: 1px solid var(--seq-color-stroke-divider-1);
+      color: var(--seq-color-text-disabled);
     }
     &.tertiary {
       border: none;
-      color: var(--color-text-disabled);
+      color: var(--seq-color-text-disabled);
     }
 
   }

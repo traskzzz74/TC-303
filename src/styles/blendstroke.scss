@@ -1,4 +1,3 @@
-
 .blendstroke {
   position: relative;
   isolation: isolate;
@@ -19,7 +18,7 @@
     z-index: 99;
     border: 1px solid transparent;
     border-radius: inherit;
-    background: var(--color-stroke-blend) border-box;
+    background: var(--seq-color-stroke-blend) border-box;
     mix-blend-mode: overlay;
     mask:
     linear-gradient(#fff 0 0) padding-box, 
@@ -54,7 +53,7 @@
     z-index: 99;
     border: 1px solid transparent;
     border-radius: inherit;
-    background: var(--color-stroke-blend) border-box;
+    background: var(--seq-color-stroke-blend) border-box;
     mix-blend-mode: overlay;
     mask:
     linear-gradient(#fff 0 0) padding-box, 
@@ -69,6 +68,6 @@
   }
 
   &:hover::before {
-    background: var(--color-interactive-stroke-blend) border-box;
+    background: var(--seq-color-interactive-stroke-blend) border-box;
   }
 }

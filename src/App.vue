@@ -290,7 +290,42 @@
 
     <section>
       <h1>Selection 选项</h1>
+      <div class="wrap">
+        <div class="item">
+          <div class="head"><h3>select</h3></div>
 
+          <div class="item-set">
+            <div class="item-set-det">
+              <seq-select v-model="selected" :options="options" size="sm" placeholder="请选择" />
+              <p>sm</p>
+            </div>
+            <div class="item-set-det">
+              <seq-select v-model="selected" :options="options" size="md" placeholder="请选择" />
+              <p>md</p>
+            </div>
+            <div class="item-set-det">
+              <seq-select v-model="selected" :options="options" size="lg" placeholder="请选择" />
+              <p>lg</p>
+            </div>
+          </div>
+
+          <div class="item-set">
+            <div class="item-set-det">
+              <seq-select v-model="selected" :options="options" size="sm" placeholder="请选择" disabled />
+              <p>--disabled</p>
+            </div>
+            <div class="item-set-det">
+              <seq-select v-model="selected" :options="options" size="md" placeholder="请选择" disabled />
+              <p>--disabled</p>
+            </div>
+            <div class="item-set-det">
+              <seq-select v-model="selected" :options="options" size="lg" placeholder="请选择" disabled />
+              <p>--disabled</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
   </div>
@@ -298,12 +333,25 @@
 
 <script>
 import Button from './components/button.vue';
+import SeqSelect from './components/select.vue'
 
 export default {
   components: {
     Button,
+    SeqSelect
   },
-};
+  data() {
+    return {
+      selected: '',
+      options: [
+        { label: '选项1', value: '1' },
+        { label: '选项2', value: '2' },
+        { label: '选项3', value: '3' },
+        { label: '选项4', value: '4' }
+      ]
+    }
+  }
+}
 </script>
 
 <style>

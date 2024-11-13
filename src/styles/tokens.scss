@@ -1,181 +1,189 @@
 :root {
-    --color-green-a: #BFFFDD;
-    --color-green-a-rgb: 191, 255, 221;
-    --color-green-b: #72D39F;
-    --color-green-b-rgb: 114, 211, 159;
-    --color-yellow-a: #FFCE8A;
-    --color-yellow-a-rgb: 255, 206, 138;
-    --color-yellow-b: #FFB854;
-    --color-yellow-b-rgb: 255, 184, 84;
-    --color-red-a: #FFA5A0;
-    --color-red-a-rgb: 255, 165, 160;
-    --color-red-b: #FF7C74;
-    --color-red-b-rgb: 255, 124, 116;
+    --seq-color-green-a: #BFFFDD;
+    --seq-color-green-a-rgb: 191, 255, 221;
+    --seq-color-green-b: #72D39F;
+    --seq-color-green-b-rgb: 114, 211, 159;
+    --seq-color-yellow-a: #FFCE8A;
+    --seq-color-yellow-a-rgb: 255, 206, 138;
+    --seq-color-yellow-b: #FFB854;
+    --seq-color-yellow-b-rgb: 255, 184, 84;
+    --seq-color-red-a: #FFA5A0;
+    --seq-color-red-a-rgb: 255, 165, 160;
+    --seq-color-red-b: #FF7C74;
+    --seq-color-red-b-rgb: 255, 124, 116;
 
-    --color-brand: var(--color-green-a);
-    --color-brand-rgb: var(--color-green-a-rgb);
-    --color-brand-10: rgba(var(--color-green-a-rgb), .1);
-    --color-brand-20: rgba(var(--color-green-a-rgb), .2);
-    --color-brand-30: rgba(var(--color-green-a-rgb), .3);
-    --color-brand-40: rgba(var(--color-green-a-rgb), .4);
-    --color-brand-50: rgba(var(--color-green-a-rgb), .5);
-    --color-brand-60: rgba(var(--color-green-a-rgb), .6);
-    --color-brand-70: rgba(var(--color-green-a-rgb), .7);
-    --color-brand-80: rgba(var(--color-green-a-rgb), .8);
-    --color-brand-90: rgba(var(--color-green-a-rgb), .9);
-    --color-brand-100: rgba(var(--color-green-a-rgb), 1);
-    --color-success: var(--color-green-b);
-    --color-success-rgb: var(--color-green-b-rgb);
-    --color-success-hover: var(--color-green-a);
-    --color-success-10: rgba(var(--color-success-rgb), .1);
-    --color-success-20: rgba(var(--color-success-rgb), .2);
-    --color-success-30: rgba(var(--color-success-rgb), .3);
-    --color-success-40: rgba(var(--color-success-rgb), .4);
-    --color-success-50: rgba(var(--color-success-rgb), .5);
-    --color-success-60: rgba(var(--color-success-rgb), .6);
-    --color-success-70: rgba(var(--color-success-rgb), .7);
-    --color-success-80: rgba(var(--color-success-rgb), .8);
-    --color-success-90: rgba(var(--color-success-rgb), .9);
-    --color-success-100: rgba(var(--color-success-rgb), 1);
-    --color-warning: var(--color-yellow-b);
-    --color-warning-rgb: var(--color-yellow-b-rgb);
-    --color-warning-hover: var(--color-yellow-a);
-    --color-warning-10: rgba(var(--color-warning-rgb), .1);
-    --color-warning-20: rgba(var(--color-warning-rgb), .2);
-    --color-warning-30: rgba(var(--color-warning-rgb), .3);
-    --color-warning-40: rgba(var(--color-warning-rgb), .4);
-    --color-warning-50: rgba(var(--color-warning-rgb), .5);
-    --color-warning-60: rgba(var(--color-warning-rgb), .6);
-    --color-warning-70: rgba(var(--color-warning-rgb), .7);
-    --color-warning-80: rgba(var(--color-warning-rgb), .8);
-    --color-warning-90: rgba(var(--color-warning-rgb), .9);
-    --color-warning-100: rgba(var(--color-warning-rgb), 1);
-    --color-danger: var(--color-red-b);
-    --color-danger-rgb: var(--color-red-b-rgb);
-    --color-danger-hover: var(--color-red-a);
-    --color-danger-10: rgba(var(--color-danger-rgb), .1);
-    --color-danger-20: rgba(var(--color-danger-rgb), .2);
-    --color-danger-30: rgba(var(--color-danger-rgb), .3);
-    --color-danger-40: rgba(var(--color-danger-rgb), .4);
-    --color-danger-50: rgba(var(--color-danger-rgb), .5);
-    --color-danger-60: rgba(var(--color-danger-rgb), .6);
-    --color-danger-70: rgba(var(--color-danger-rgb), .7);
-    --color-danger-80: rgba(var(--color-danger-rgb), .8);
-    --color-danger-90: rgba(var(--color-danger-rgb), .9);
-    --color-danger-100: rgba(var(--color-danger-rgb), 1);
-    --color-white: #ffffff;
-    --color-white-rgb: 255, 255, 255;
-    --color-white-10: rgba(var(--color-white-rgb), .1);
-    --color-white-20: rgba(var(--color-white-rgb), .2);
-    --color-white-30: rgba(var(--color-white-rgb), .3);
-    --color-white-40: rgba(var(--color-white-rgb), .4);
-    --color-white-50: rgba(var(--color-white-rgb), .5);
-    --color-white-60: rgba(var(--color-white-rgb), .6);
-    --color-white-70: rgba(var(--color-white-rgb), .7);
-    --color-white-80: rgba(var(--color-white-rgb), .8);
-    --color-white-90: rgba(var(--color-white-rgb), .9);
-    --color-white-100: rgba(var(--color-white-rgb), 1);
-    --color-black: #000000;
-    --color-black-rgb: 0, 0, 0;
-    --color-black-10: rgba(var(--color-black-rgb), .1);
-    --color-black-20: rgba(var(--color-black-rgb), .2);
-    --color-black-30: rgba(var(--color-black-rgb), .3);
-    --color-black-40: rgba(var(--color-black-rgb), .4);
-    --color-black-50: rgba(var(--color-black-rgb), .5);
-    --color-black-60: rgba(var(--color-black-rgb), .6);
-    --color-black-70: rgba(var(--color-black-rgb), .7);
-    --color-black-80: rgba(var(--color-black-rgb), .8);
-    --color-black-90: rgba(var(--color-black-rgb), .9);
-    --color-black-100: rgba(var(--color-black-rgb), 1);
+    --seq-color-brand: var(--seq-color-green-a);
+    --seq-color-brand-rgb: var(--seq-color-green-a-rgb);
+    --seq-color-brand-10: rgba(var(--seq-color-green-a-rgb), .1);
+    --seq-color-brand-20: rgba(var(--seq-color-green-a-rgb), .2);
+    --seq-color-brand-30: rgba(var(--seq-color-green-a-rgb), .3);
+    --seq-color-brand-40: rgba(var(--seq-color-green-a-rgb), .4);
+    --seq-color-brand-50: rgba(var(--seq-color-green-a-rgb), .5);
+    --seq-color-brand-60: rgba(var(--seq-color-green-a-rgb), .6);
+    --seq-color-brand-70: rgba(var(--seq-color-green-a-rgb), .7);
+    --seq-color-brand-80: rgba(var(--seq-color-green-a-rgb), .8);
+    --seq-color-brand-90: rgba(var(--seq-color-green-a-rgb), .9);
+    --seq-color-brand-100: rgba(var(--seq-color-green-a-rgb), 1);
+    --seq-color-success: var(--seq-color-green-b);
+    --seq-color-success-rgb: var(--seq-color-green-b-rgb);
+    --seq-color-success-hover: var(--seq-color-green-a);
+    --seq-color-success-10: rgba(var(--seq-color-success-rgb), .1);
+    --seq-color-success-20: rgba(var(--seq-color-success-rgb), .2);
+    --seq-color-success-30: rgba(var(--seq-color-success-rgb), .3);
+    --seq-color-success-40: rgba(var(--seq-color-success-rgb), .4);
+    --seq-color-success-50: rgba(var(--seq-color-success-rgb), .5);
+    --seq-color-success-60: rgba(var(--seq-color-success-rgb), .6);
+    --seq-color-success-70: rgba(var(--seq-color-success-rgb), .7);
+    --seq-color-success-80: rgba(var(--seq-color-success-rgb), .8);
+    --seq-color-success-90: rgba(var(--seq-color-success-rgb), .9);
+    --seq-color-success-100: rgba(var(--seq-color-success-rgb), 1);
+    --seq-color-warning: var(--seq-color-yellow-b);
+    --seq-color-warning-rgb: var(--seq-color-yellow-b-rgb);
+    --seq-color-warning-hover: var(--seq-color-yellow-a);
+    --seq-color-warning-10: rgba(var(--seq-color-warning-rgb), .1);
+    --seq-color-warning-20: rgba(var(--seq-color-warning-rgb), .2);
+    --seq-color-warning-30: rgba(var(--seq-color-warning-rgb), .3);
+    --seq-color-warning-40: rgba(var(--seq-color-warning-rgb), .4);
+    --seq-color-warning-50: rgba(var(--seq-color-warning-rgb), .5);
+    --seq-color-warning-60: rgba(var(--seq-color-warning-rgb), .6);
+    --seq-color-warning-70: rgba(var(--seq-color-warning-rgb), .7);
+    --seq-color-warning-80: rgba(var(--seq-color-warning-rgb), .8);
+    --seq-color-warning-90: rgba(var(--seq-color-warning-rgb), .9);
+    --seq-color-warning-100: rgba(var(--seq-color-warning-rgb), 1);
+    --seq-color-danger: var(--seq-color-red-b);
+    --seq-color-danger-rgb: var(--seq-color-red-b-rgb);
+    --seq-color-danger-hover: var(--seq-color-red-a);
+    --seq-color-danger-10: rgba(var(--seq-color-danger-rgb), .1);
+    --seq-color-danger-20: rgba(var(--seq-color-danger-rgb), .2);
+    --seq-color-danger-30: rgba(var(--seq-color-danger-rgb), .3);
+    --seq-color-danger-40: rgba(var(--seq-color-danger-rgb), .4);
+    --seq-color-danger-50: rgba(var(--seq-color-danger-rgb), .5);
+    --seq-color-danger-60: rgba(var(--seq-color-danger-rgb), .6);
+    --seq-color-danger-70: rgba(var(--seq-color-danger-rgb), .7);
+    --seq-color-danger-80: rgba(var(--seq-color-danger-rgb), .8);
+    --seq-color-danger-90: rgba(var(--seq-color-danger-rgb), .9);
+    --seq-color-danger-100: rgba(var(--seq-color-danger-rgb), 1);
+    --seq-color-white: #ffffff;
+    --seq-color-white-rgb: 255, 255, 255;
+    --seq-color-white-10: rgba(var(--seq-color-white-rgb), .1);
+    --seq-color-white-20: rgba(var(--seq-color-white-rgb), .2);
+    --seq-color-white-30: rgba(var(--seq-color-white-rgb), .3);
+    --seq-color-white-40: rgba(var(--seq-color-white-rgb), .4);
+    --seq-color-white-50: rgba(var(--seq-color-white-rgb), .5);
+    --seq-color-white-60: rgba(var(--seq-color-white-rgb), .6);
+    --seq-color-white-70: rgba(var(--seq-color-white-rgb), .7);
+    --seq-color-white-80: rgba(var(--seq-color-white-rgb), .8);
+    --seq-color-white-90: rgba(var(--seq-color-white-rgb), .9);
+    --seq-color-white-100: rgba(var(--seq-color-white-rgb), 1);
+    --seq-color-black: #000000;
+    --seq-color-black-rgb: 0, 0, 0;
+    --seq-color-black-10: rgba(var(--seq-color-black-rgb), .1);
+    --seq-color-black-20: rgba(var(--seq-color-black-rgb), .2);
+    --seq-color-black-30: rgba(var(--seq-color-black-rgb), .3);
+    --seq-color-black-40: rgba(var(--seq-color-black-rgb), .4);
+    --seq-color-black-50: rgba(var(--seq-color-black-rgb), .5);
+    --seq-color-black-60: rgba(var(--seq-color-black-rgb), .6);
+    --seq-color-black-70: rgba(var(--seq-color-black-rgb), .7);
+    --seq-color-black-80: rgba(var(--seq-color-black-rgb), .8);
+    --seq-color-black-90: rgba(var(--seq-color-black-rgb), .9);
+    --seq-color-black-100: rgba(var(--seq-color-black-rgb), 1);
 
-    --color-text-invert: var(--color-black);
-    --color-text-brand: var(--color-brand);
-    --color-text-primary: var(--color-white-90);
-    --color-text-secondary: var(--color-white-70);
-    --color-text-tertiary: var(--color-white-50);
-    --color-text-disabled: var(--color-white-30);
+    --seq-color-text-invert: var(--seq-color-black);
+    --seq-color-text-brand: var(--seq-color-brand);
+    --seq-color-text-primary: var(--seq-color-white-90);
+    --seq-color-text-secondary: var(--seq-color-white-70);
+    --seq-color-text-tertiary: var(--seq-color-white-50);
+    --seq-color-text-disabled: var(--seq-color-white-30);
 
-    --color-bg-index-1: linear-gradient(180deg, var(--color-black-20) 0%, var(--color-black-30) 100%);
-    --color-bg-index-2: linear-gradient(180deg, var(--color-black-40) 0%, var(--color-black-50) 100%);
-    --color-bg-alpha: rgba(var(--color-white), .02);
+    --seq-color-bg-index-1: linear-gradient(180deg, var(--seq-color-black-20) 0%, var(--seq-color-black-30) 100%);
+    --seq-color-bg-index-2: linear-gradient(180deg, var(--seq-color-black-40) 0%, var(--seq-color-black-50) 100%);
+    --seq-color-bg-alpha: rgba(var(--seq-color-white), .02);
 
-    --color-stroke-divider-0: rgba(var(--color-white-rgb), 0);
-    --color-stroke-divider-1: rgba(var(--color-white-rgb), .06);
-    --color-stroke-divider-2: rgba(var(--color-white-rgb), .12);
-    --color-stroke-divider-3: rgba(var(--color-white-rgb), .18);
+    --seq-color-stroke-divider-0: rgba(var(--seq-color-white-rgb), 0);
+    --seq-color-stroke-divider-1: rgba(var(--seq-color-white-rgb), .06);
+    --seq-color-stroke-divider-2: rgba(var(--seq-color-white-rgb), .12);
+    --seq-color-stroke-divider-3: rgba(var(--seq-color-white-rgb), .18);
 
     // 渐变描边 Normal
-    --color-stroke-blend:
+    --seq-color-stroke-blend:
             linear-gradient(
                     180deg,
-                    var(--color-white-60) 0%,
-                    var(--color-white-10) 33%,
-                    var(--color-white-10) 66%,
-                    var(--color-white-30) 100%
+                    var(--seq-color-white-60) 0%,
+                    var(--seq-color-white-10) 33%,
+                    var(--seq-color-white-10) 66%,
+                    var(--seq-color-white-30) 100%
             );
 
-    --color-interactive-bg-index-1: var(--color-black-20);
-    --color-interactive-bg-index-2: var(--color-black-30);
-//     --color-interactive-bg-index-3: radial-gradient(146.76% 100% at 50% 100%, #3F6F56 0%, #182B22 100%);
-//     --color-interactive-bg-index-4: radial-gradient(146.76% 100% at 50% 0%, #498364 0%, #182B22 100%);
-//     --color-interactive-bg-index-5: radial-gradient(146.76% 100% at 50% 0%, #68BF8A 0%, #213B2F 100%);
-        --color-interactive-bg-index-3: radial-gradient(146.76% 100% at 50% 100%, rgba(114, 211, 159, 0.50) 0%, rgba(89, 214, 147, 0.10) 100%), 
+    --seq-color-interactive-bg-index-1: var(--seq-color-black-20);
+    --seq-color-interactive-bg-index-2: var(--seq-color-black-30);
+    --seq-color-interactive-bg-index-3: radial-gradient(146.76% 100% at 50% 100%, rgba(114, 211, 159, 0.50) 0%, rgba(89, 214, 147, 0.10) 100%), 
                                         linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.30) 100%);
-        --color-interactive-bg-index-4: radial-gradient(146.76% 100% at 50% 0%, rgba(114, 211, 159, 0.60) 0%, rgba(89, 214, 147, 0.10) 100%), 
+    --seq-color-interactive-bg-index-4: radial-gradient(146.76% 100% at 50% 0%, rgba(114, 211, 159, 0.60) 0%, rgba(89, 214, 147, 0.10) 100%), 
                                         linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.30) 100%);
-        --color-interactive-bg-index-5: radial-gradient(146.76% 100% at 50% 0%, rgba(114, 211, 151, 0.90) 0%, rgba(89, 214, 147, 0.15) 100%), 
+    --seq-color-interactive-bg-index-5: radial-gradient(146.76% 100% at 50% 0%, rgba(114, 211, 151, 0.90) 0%, rgba(89, 214, 147, 0.15) 100%), 
                                         linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.30) 100%);
         // 渐变描边 Strong
-    --color-interactive-stroke-blend:
+    --seq-color-interactive-stroke-blend:
             linear-gradient(
                     180deg,
-                    var(--color-white-100) 0%,
-                    var(--color-white-10) 33%,
-                    var(--color-white-10) 66%,
-                    var(--color-white-40) 100%
+                    var(--seq-color-white-100) 0%,
+                    var(--seq-color-white-10) 33%,
+                    var(--seq-color-white-10) 66%,
+                    var(--seq-color-white-40) 100%
             );
 
-    --color-button-interactive-bg-brand: linear-gradient(180deg, var(--color-brand) 0%, var(--color-success) 100%);
-    --color-button-interactive-bg-warning: linear-gradient(180deg, var(--color-warning-hover) 0%, var(--color-warning) 100%);
-    --color-button-interactive-bg-danger: linear-gradient(180deg, var(--color-danger-hover) 0%, var(--color-danger) 100%);
+    --seq-color-button-interactive-bg-brand: linear-gradient(180deg, var(--seq-color-brand) 0%, var(--seq-color-success) 100%);
+    --seq-color-button-interactive-bg-warning: linear-gradient(180deg, var(--seq-color-warning-hover) 0%, var(--seq-color-warning) 100%);
+    --seq-color-button-interactive-bg-danger: linear-gradient(180deg, var(--seq-color-danger-hover) 0%, var(--seq-color-danger) 100%);
 
 
     /*      ----        */
 
-    --size-sm: 1.5rem;
-    --size-md: 1.75rem;
-    --size-lg: 2.25rem;
-    --size-lgx: 3rem;
+    --seq-size-sm: 1.5rem;
+    --seq-size-md: 1.75rem;
+    --seq-size-lg: 2.25rem;
+    --seq-size-lgx: 3rem;
 
-    --spacing-sm: .5rem;
-    --spacing-md: .75rem;
-    --spacing-lg: 1rem;
-    --spacing-lgx: 1.25rem;
+    --seq-spacing-comp-x-sm: .5rem;
+    --seq-spacing-comp-x-md: .75rem;
+    --seq-spacing-comp-x-lg: 1rem;
+    --seq-spacing-comp-x-lgx: 1.25rem;
 
-    --gapping-sm: .25rem;
-    --gapping-md: .5rem;
-    --gapping-lg: .75rem;
-    --gapping-lgx: .75rem;
+    --seq-spacing-comp-y-sm: .25rem;
+    --seq-spacing-comp-y-md: .375rem;
+    --seq-spacing-comp-y-lg: .625rem;
+    --seq-spacing-comp-y-lgx: .75rem;
 
-    --radius-0: 0rem;
-    --radius-33: .25rem;
-    --radius-66: .5rem;
-    --radius-83: .625rem;
-    --radius-100: .75rem;
-    --radius-200: 1.5rem;
-    --radius-300: 2.25rem;
-    --radius-400: 3rem;
+    --seq-spacing-sm: .5rem;
+    --seq-spacing-md: .75rem;
+    --seq-spacing-lg: 1rem;
+    --seq-spacing-lgx: 1.25rem;
 
-    --font-footnote-size: .75rem;
-    --font-footnote-line-height: 1.25rem;
-    --font-body-size: .875rem;
-    --font-body-line-height: 1.375rem;
-    --font-h1-size: 1.5rem;
-    --font-h1-line-height: 2rem;
-    --font-h2-size: 1.25rem;
-    --font-h2-line-height: 1.75rem;
-    --font-h3-size: 1rem;
-    --font-h3-line-height: 1.5rem;
+    --seq-gapping-sm: .25rem;
+    --seq-gapping-md: .5rem;
+    --seq-gapping-lg: .75rem;
+    --seq-gapping-lgx: .75rem;
 
-    --transition-default: .3s ease;
+    --seq-radius-0: 0rem;
+    --seq-radius-33: .25rem;
+    --seq-radius-66: .5rem;
+    --seq-radius-83: .625rem;
+    --seq-radius-100: .75rem;
+    --seq-radius-200: 1.5rem;
+    --seq-radius-300: 2.25rem;
+    --seq-radius-400: 3rem;
+
+    --seq-font-footnote-size: .75rem;
+    --seq-font-footnote-line-height: 1.25rem;
+    --seq-font-body-size: .875rem;
+    --seq-font-body-line-height: 1.375rem;
+    --seq-font-h1-size: 1.5rem;
+    --seq-font-h1-line-height: 2rem;
+    --seq-font-h2-size: 1.25rem;
+    --seq-font-h2-line-height: 1.75rem;
+    --seq-font-h3-size: 1rem;
+    --seq-font-h3-line-height: 1.5rem;
+
+    --seq-transition-default: .3s ease;
+    --seq-transition-curve: .3s ease-in-out;
 }
