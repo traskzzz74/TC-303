@@ -5,7 +5,8 @@
       `seq-select-${size}`,
       {
         'is-disabled': disabled,
-        'is-selected': selected
+        'is-selected': selected,
+        'is-multiple': multiple
       }
     ]"
   >
@@ -15,7 +16,22 @@
       :disabled="disabled"
       @click="handleClick"
     >
-      <span class="seq-select-label">{{ selectedLabel || placeholder }}</span>
+      <div class="seq-select-values">
+        <template v-if="multiple && selectedOptions.length">
+          <seq-tag
+            v-for="option in selectedOptions"
+            :key="option.value"
+            :size="tagSize"
+            closable
+            @close="removeOption(option)"
+          >
+            {{ option.label }}
+          </seq-tag>
+        </template>
+        <span v-else class="seq-select-placeholder">
+          {{ selectedLabel || placeholder }}
+        </span>
+      </div>
       <iconpark-icon name="fill-caret-down" class="seq-select-arrow"></iconpark-icon>
     </div>
 
@@ -42,12 +58,17 @@
 </template>
 
 <script>
+import SeqTag from './tag.vue'
+
 export default {
+  components: {
+    SeqTag
+  },
   name: 'SeqSelect',
   props: {
     modelValue: {
-      type: [String, Number],
-      default: ''
+      type: [String, Number, Array],
+      default: () => []
     },
     options: {
       type: Array,
@@ -65,6 +86,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    multiple: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -77,6 +102,20 @@ export default {
     selectedLabel() {
       const option = this.options.find(opt => opt.value === this.modelValue)
       return option ? option.label : ''
+    },
+    selectedOptions() {
+      if (!this.multiple) return []
+      return this.options.filter(opt => 
+        Array.isArray(this.modelValue) && this.modelValue.includes(opt.value)
+      )
+    },
+    tagSize() {
+      const sizeMap = {
+        'sm': 'sm',
+        'md': 'sm',
+        'lg': 'md'
+      }
+      return sizeMap[this.size]
     }
   },
   methods: {
@@ -86,14 +125,30 @@ export default {
       this.$emit('click', event)
     },
     handleSelect(option) {
-      this.$emit('update:modelValue', option.value)
-      this.selected = false
+      if (this.multiple) {
+        const newValue = [...(this.modelValue || [])]
+        const index = newValue.indexOf(option.value)
+        if (index > -1) {
+          newValue.splice(index, 1)
+        } else {
+          newValue.push(option.value)
+        }
+        this.$emit('update:modelValue', newValue)
+      } else {
+        this.$emit('update:modelValue', option.value)
+        this.selected = false
+      }
     },
     handleOptionHover(option) {
       this.currentHoverValue = option.value
     },
     handleOptionLeave() {
       this.currentHoverValue = null
+    },
+    removeOption(option) {
+      if (this.disabled) return
+      const newValue = this.modelValue.filter(v => v !== option.value)
+      this.$emit('update:modelValue', newValue)
     }
   }
 }
@@ -154,7 +209,7 @@ export default {
     white-space: nowrap;
   }
 
-  &-arrow {
+  &-suffix {
     color: var(--seq-color-brand);
   }
 
@@ -163,7 +218,7 @@ export default {
       border-color: var(--seq-color-brand);
     }
 
-    .seq-select-arrow {
+    .seq-select-suffix {
       transform: rotate(180deg);
     }
   }
@@ -175,7 +230,7 @@ export default {
       cursor: not-allowed;
     }
 
-    .seq-select-arrow {
+    .seq-select-suffix {
       color: var(--seq-color-text-tertiary);
     }
   }
@@ -187,7 +242,7 @@ export default {
     width: 100%;
     min-width: inherit;
     background: var(--seq-color-bg-index-1);
-    backdrop-filter: var(--seq-effect-blur-sm);
+    backdrop-filter: var(--seq-effect-blur-md);
     border: 1px solid var(--seq-color-stroke-divider-1);
     border-radius: var(--seq-radius-100);
     z-index: 99;
@@ -226,7 +281,22 @@ export default {
     &.is-selected {
       background: var(--seq-color-interactive-bg-index-3);
     }
-}
+  }
 
+  &-values {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--seq-spacing-xs);
+    min-height: 20px;
+    padding: var(--seq-spacing-xs) 0;
+  }
+
+  &.is-multiple {
+    .seq-select-trigger {
+      height: auto;
+      min-height: var(--seq-size-md);
+    }
+  }
 }
 </style> 

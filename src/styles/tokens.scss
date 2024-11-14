@@ -137,7 +137,7 @@
     --seq-color-button-interactive-bg-danger: linear-gradient(180deg, var(--seq-color-danger-hover) 0%, var(--seq-color-danger) 100%);
 
     /* comp 仅为组件使用 */
-    /* size-comp 仅作用于组件的 height */
+    /* size-comp 仅作用于组件的 height 或者 width */
     --seq-size-comp-sm: 1.5rem;
     --seq-size-comp-md: 1.75rem;
     --seq-size-comp-lg: 2.25rem;
@@ -154,9 +154,9 @@
     --seq-space-comp-y-lgx: .75rem;
 
     --seq-gap-comp-sm: .25rem;
-    --seq-gap-comp-md: .5rem;
-    --seq-gap-comp-lg: .75rem;
-    --seq-gap-comp-lgx: .75rem;
+    --seq-gap-comp-md: .375rem;
+    --seq-gap-comp-lg: .5rem;
+    --seq-gap-comp-lgx: .625rem;
 
     /* 全局 */
     --seq-space-global-1: .25rem;
@@ -199,6 +199,7 @@
     --seq-effect-blur-sm: blur(.75rem);
     --seq-effect-blur-md: blur(1.5rem);
     --seq-effect-blur-lg: blur(2.25rem);
+    --seq-effect-blur-lgx: blur(3rem);
 
     --seq-transition-default: .3s ease;
     --seq-transition-curve: .3s ease-in-out;

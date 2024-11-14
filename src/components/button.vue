@@ -107,26 +107,24 @@ const handleClick = () => {
     width: auto;
   }
 
+  &.sm, &.md, &.lg {
+    font-size: var(--seq-font-size-body);
+    line-height: var(--seq-font-line-height-body);
+  }
   &.sm {
     gap: var(--seq-gap-comp-sm);
     height: var(--seq-size-comp-sm);
     padding: 0 var(--seq-space-comp-x-sm);
-    font-size: var(--seq-font-size-body);
-    line-height: var(--seq-font-line-height-body);
   }
   &.md {
     gap: var(--seq-gap-comp-md);
     height: var(--seq-size-comp-md);
     padding: 0 var(--seq-space-comp-x-md);
-    font-size: var(--seq-font-size-body);
-    line-height: var(--seq-font-line-height-body);
   }
   &.lg {
     gap: var(--seq-gap-comp-lg);
     height: var(--seq-size-comp-lg);
     padding: 0 var(--seq-space-comp-x-lg);
-    font-size: var(--seq-font-size-body);
-    line-height: var(--seq-font-line-height-body);
   }
   &.lgx {
     gap: var(--seq-gap-comp-lgx);
@@ -161,7 +159,6 @@ const handleClick = () => {
       color: var(--seq-color-text-invert);
       background: var(--seq-color-button-interactive-bg-brand);
     }
-
   }
   &.tertiary {
       border: none;
@@ -171,7 +168,6 @@ const handleClick = () => {
         color: var(--seq-color-text-brand);
         background: var(--seq-color-interactive-bg-index-2);
     }
-
   }
 
   &:disabled {
@@ -191,7 +187,6 @@ const handleClick = () => {
       border: none;
       color: var(--seq-color-text-disabled);
     }
-
   }
 
 }

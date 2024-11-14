@@ -1,37 +1,37 @@
 @use './tokens.scss';
 @use './blendstroke.scss';
 
+:root {
+  blockquote,dd,dl,fieldset,figure,ol,ul,li,h1,h2,h3,h4,h5,h6,hr,p,pre {
+    margin: 0;
+  }
+  
+  p {
+    font-size: var(--seq-font-size-body);
+    line-height: var(--seq-font-line-height-body);
+  }
+  
+  h1 {
+    font-size: var(--seq-font-size-h1);
+    line-height: var(--seq-font-line-height-h1);
+  }
+  
+  h2 {
+    font-size: var(--seq-font-size-h2);
+    line-height: var(--seq-font-line-height-h2);
+  }
+  
+  h3 {
+    font-size: var(--seq-font-size-h3);
+    line-height: var(--seq-font-line-height-h3);
+  }
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    padding: 0 2rem;
-  }
 }
 
 html {
@@ -47,30 +47,6 @@ button {
   cursor: pointer;
   background: none;
   border: none;
-}
-
-blockquote,dd,dl,fieldset,figure,ol,ul,li,h1,h2,h3,h4,h5,h6,hr,p,pre {
-  margin: 0;
-}
-
-p {
-  font-size: var(--seq-font-body-size);
-  line-height: var(--seq-font-body-line-height);
-}
-
-h1 {
-  font-size: var(--seq-font-h1-size);
-  line-height: var(--seq-font-h1-line-height);
-}
-
-h2 {
-  font-size: var(--seq-font-h2-size);
-  line-height: var(--seq-font-h2-line-height);
-}
-
-h3 {
-  font-size: var(--seq-font-h3-size);
-  line-height: var(--seq-font-h3-line-height);
 }
 
 .comp-page-container {
