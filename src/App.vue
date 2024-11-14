@@ -289,42 +289,75 @@
     </section>
 
     <section>
-      <h1>Selection 选项</h1>
+      <h1>Select 选择器</h1>
       <div class="wrap">
-        <div class="item">
-          <div class="head"><h3>select</h3></div>
-
+        <SeqSelectProvider>
+          
+          <div class="item">
+            <div class="head"><h3>select</h3></div>
+            <div class="item-set">
+                <div class="item-set-det">
+                  <seq-select v-model="selected1" :options="options" size="sm" placeholder="Select" />
+                  <p>sm</p>
+                </div>
+                <div class="item-set-det">
+                  <seq-select v-model="selected2" :options="options" size="md" placeholder="Select" />
+                  <p>md</p>
+                </div>
+                <div class="item-set-det">
+                  <seq-select v-model="selected3" :options="options" size="lg" placeholder="Select" />
+                  <p>lg</p>
+                </div>
+            </div>
           <div class="item-set">
-            <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="sm" placeholder="Select" />
-              <p>sm</p>
-            </div>
-            <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="md" placeholder="Select" />
-              <p>md</p>
-            </div>
-            <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="lg" placeholder="Select" />
-              <p>lg</p>
+              <div class="item-set-det">
+                <seq-select v-model="selected1" :options="options" size="sm" placeholder="Select" disabled />
+                <p>--disabled</p>
+              </div>
+              <div class="item-set-det">
+                <seq-select v-model="selected2" :options="options" size="md" placeholder="Select" disabled />
+                <p>--disabled</p>
+              </div>
+              <div class="item-set-det">
+                <seq-select v-model="selected3" :options="options" size="lg" placeholder="Select" disabled />
+                <p>--disabled</p>
+              </div>
             </div>
           </div>
 
-          <div class="item-set">
-            <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="sm" placeholder="Select" disabled />
-              <p>--disabled</p>
+          <div class="item">
+            <div class="head"><h3>select-multiple</h3></div>
+            <div class="item-set">
+              <div class="item-set-det">
+                <seq-select v-model="multiSelected1" :options="options" multiple size="sm" placeholder="Select" />
+                <p>sm</p>
+              </div>
+              <div class="item-set-det">
+                <seq-select v-model="multiSelected2" :options="options" multiple size="md" placeholder="Select" />
+                <p>md</p>
+              </div>
+              <div class="item-set-det">
+                <seq-select v-model="multiSelected3" :options="options" multiple size="lg" placeholder="Select" />
+                <p>lg</p>
+              </div>
             </div>
-            <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="md" placeholder="Select" disabled />
-              <p>--disabled</p>
-            </div>
-            <div class="item-set-det">
-              <seq-select v-model="selected" :options="options" size="lg" placeholder="Select" disabled />
-              <p>--disabled</p>
+            <div class="item-set">
+              <div class="item-set-det">
+                <seq-select v-model="multiSelected1" :options="options" multiple size="sm" placeholder="Select" disabled />
+                <p>--disabled</p>
+              </div>
+              <div class="item-set-det">
+                <seq-select v-model="multiSelected2" :options="options" multiple size="md" placeholder="Select" disabled />
+                <p>--disabled</p>
+              </div>
+              <div class="item-set-det">
+                <seq-select v-model="multiSelected3" :options="options" multiple size="lg" placeholder="Select" disabled />
+                <p>--disabled</p>
+              </div>
             </div>
           </div>
-
-        </div>
+          
+        </SeqSelectProvider>
       </div>
     </section>
 
@@ -334,15 +367,23 @@
 <script>
 import Button from './components/button.vue';
 import SeqSelect from './components/select.vue'
+import SeqSelectProvider from './components/select-provider.vue'
+
 
 export default {
   components: {
     Button,
-    SeqSelect
+    SeqSelect,
+    SeqSelectProvider
   },
   data() {
     return {
-      selected: '',
+      selected1: '',
+      selected2: '',
+      selected3: '',
+      multiSelected1: [],
+      multiSelected2: [],
+      multiSelected3: [],
       options: [
         { label: 'Option1', value: '1' },
         { label: 'Option2', value: '2' },

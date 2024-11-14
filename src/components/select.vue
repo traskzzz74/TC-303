@@ -12,6 +12,9 @@
   >
     <div 
       class="seq-select-trigger"
+      :class="{
+        'is-placeholder': multiple && !selectedOptions.length
+      }"
       tabindex="0"
       :disabled="disabled"
       @click="handleClick"
@@ -22,6 +25,7 @@
             v-for="option in selectedOptions"
             :key="option.value"
             :size="tagSize"
+            :disabled="disabled"
             closable
             @close="removeOption(option)"
           >
@@ -32,14 +36,14 @@
           {{ selectedLabel || placeholder }}
         </span>
       </div>
-      <iconpark-icon name="fill-caret-down" class="seq-select-arrow"></iconpark-icon>
+      <iconpark-icon name="fill-caret-down" class="seq-select-suffix"></iconpark-icon>
     </div>
 
     <div 
       v-show="selected" 
       class="seq-select-dropdown"
     >
-      <ul class="seq-select-options">
+      <ul v-if="!multiple" class="seq-select-options">
         <li
           v-for="option in options"
           :key="option.value"
@@ -51,6 +55,25 @@
           @click="handleSelect(option)"
         >
           {{ option.label }}
+        </li>
+      </ul>
+
+      <ul v-else class="seq-select-options">
+        <li
+          v-for="option in options"
+          :key="option.value"
+          class="seq-select-multiple-option"
+          :class="{ 
+            'is-selected': isSelected(option.value)
+          }"
+          @click="handleSelect(option)"
+        >
+          {{ option.label }}
+          <iconpark-icon 
+            v-if="isSelected(option.value)"
+            name="outline-check-2"
+            class="seq-select-multiple-option-icon"
+          />
         </li>
       </ul>
     </div>
@@ -65,6 +88,11 @@ export default {
     SeqTag
   },
   name: 'SeqSelect',
+  inject: {
+    selectProvider: {
+      default: null
+    }
+  },
   props: {
     modelValue: {
       type: [String, Number, Array],
@@ -100,6 +128,9 @@ export default {
   },
   computed: {
     selectedLabel() {
+      if (this.multiple) {
+        return ''
+      }
       const option = this.options.find(opt => opt.value === this.modelValue)
       return option ? option.label : ''
     },
@@ -112,17 +143,36 @@ export default {
     tagSize() {
       const sizeMap = {
         'sm': 'sm',
-        'md': 'sm',
-        'lg': 'md'
+        'md': 'md',
+        'lg': 'lg'
       }
       return sizeMap[this.size]
     }
   },
+  mounted() {
+    document.addEventListener('click', this.handleOutsideClick)
+  },
+  beforeDestroy() {
+    document.removeEventListener('click', this.handleOutsideClick)
+  },
   methods: {
     handleClick(event) {
       if (this.disabled) return
-      this.selected = !this.selected
+      
+      if (!this.selected) {
+        if (this.selectProvider) {
+          this.selectProvider.setOpenedSelect(this)
+        }
+        this.selected = true
+      } else {
+        this.selected = false
+        if (this.selectProvider) {
+          this.selectProvider.setOpenedSelect(null)
+        }
+      }
+      
       this.$emit('click', event)
+      event.stopPropagation()
     },
     handleSelect(option) {
       if (this.multiple) {
@@ -149,6 +199,18 @@ export default {
       if (this.disabled) return
       const newValue = this.modelValue.filter(v => v !== option.value)
       this.$emit('update:modelValue', newValue)
+    },
+    isSelected(value) {
+      return Array.isArray(this.modelValue) && this.modelValue.includes(value)
+    },
+    handleOutsideClick(event) {
+      const isClickInside = this.$el.contains(event.target)
+      if (!isClickInside && this.selected) {
+        this.selected = false
+        if (this.selectProvider) {
+          this.selectProvider.setOpenedSelect(null)
+        }
+      }
     }
   }
 }
@@ -159,6 +221,8 @@ export default {
   position: relative;
   display: inline-block;
   min-width: 120px;
+  font-size: var(--seq-font-size-body);
+  line-height: var(--seq-font-line-height-body);
   
   &-sm {
     .seq-select-trigger {
@@ -168,7 +232,6 @@ export default {
       height: var(--seq-size-comp-sm);
     }
   }
-
   &-md {
     .seq-select-trigger {
       gap: var(--seq-gap-comp-md);
@@ -177,7 +240,6 @@ export default {
       height: var(--seq-size-comp-md);
     }
   }
-
   &-lg {
     .seq-select-trigger {
       gap: var(--seq-gap-comp-lg);
@@ -186,7 +248,7 @@ export default {
       height: var(--seq-size-comp-lg);
     }
   }
-
+  
   &-trigger {
     display: flex;
     align-items: center;
@@ -203,8 +265,6 @@ export default {
   &-label {
     flex: 1;
     color: var(--seq-color-text-priarmy);
-    font-size: var(--seq-font-size-body);
-    line-height: var(--seq-font-line-height-body);
     overflow: hidden;
     white-space: nowrap;
   }
@@ -226,18 +286,18 @@ export default {
   &.is-disabled {
     .seq-select-trigger {
       border-color: var(--seq-color-stroke-divider-1);
-      color: var(--seq-color-text-tertiary);
+      color: var(--seq-color-text-disabled);
       cursor: not-allowed;
     }
 
     .seq-select-suffix {
-      color: var(--seq-color-text-tertiary);
+      color: var(--seq-color-text-disabled);
     }
   }
 
   &-dropdown {
     position: absolute;
-    top: calc(100% + var(--seq-space-global-1));
+    top: calc(100% + var(--seq-space-global-2));
     left: 0;
     width: 100%;
     min-width: inherit;
@@ -269,8 +329,6 @@ export default {
   &-option {
     padding: var(--seq-space-comp-y-md) var(--seq-space-comp-x-md);
     border-radius: var(--seq-radius-100);
-    font-size: var(--seq-font-size-body);
-    line-height: var(--seq-font-line-height-body);
     color: var(--seq-color-text-priamry);
     cursor: pointer;
 
@@ -283,20 +341,76 @@ export default {
     }
   }
 
-  &-values {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--seq-spacing-xs);
-    min-height: 20px;
-    padding: var(--seq-spacing-xs) 0;
+  &.is-multiple {
+    display: inline-flex;
+    align-items: center;
+
+    .seq-select-trigger {
+      width: 100%;
+    }
+
+    &.seq-select-sm .seq-select-trigger {
+      padding: var(--seq-space-global-1) 
+               var(--seq-space-comp-x-sm) 
+               var(--seq-space-global-1) 
+               var(--seq-space-global-1);
+
+      &.is-placeholder {
+        gap: var(--seq-gap-comp-sm);
+        padding: 0 var(--seq-space-comp-x-sm);
+      }
+    }
+    &.seq-select-md .seq-select-trigger {
+      padding: var(--seq-space-global-1) 
+               var(--seq-space-comp-x-md) 
+               var(--seq-space-global-1) 
+               var(--seq-space-global-1);
+
+      &.is-placeholder {
+        gap: var(--seq-gap-comp-md);
+        padding: 0 var(--seq-space-comp-x-md);
+      }
+    }
+    &.seq-select-lg .seq-select-trigger {
+      padding: var(--seq-space-global-1) 
+               var(--seq-space-comp-x-lg) 
+               var(--seq-space-global-1) 
+               var(--seq-space-global-1);
+
+      &.is-placeholder {
+        gap: var(--seq-gap-comp-lg);
+        padding: 0 var(--seq-space-comp-x-lg);
+      }
+    }
+
+    .seq-select-values {
+      display: inherit;
+      align-items: inherit;
+      align-self: stretch;
+      gap: var(--seq-gap-global-1);
+    }
+
   }
 
-  &.is-multiple {
-    .seq-select-trigger {
-      height: auto;
-      min-height: var(--seq-size-md);
+  &-multiple-option {
+    position: relative;
+    padding: var(--seq-space-comp-y-md) var(--seq-space-comp-x-md);
+    border-radius: var(--seq-radius-100);
+    color: var(--seq-color-text-priamry);
+    cursor: pointer;
+
+    &:hover {
+      background: var(--seq-color-interactive-bg-index-1);
+    }
+
+    &-icon {
+      position: absolute;
+      right: var(--seq-space-comp-x-sm);
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--seq-color-brand);
     }
   }
+
 }
 </style> 
