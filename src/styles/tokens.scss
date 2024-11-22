@@ -138,57 +138,57 @@
 
     /* comp 仅为组件使用 */
     /* size-comp 仅作用于组件的 height 或者 width */
-    --seq-size-comp-sm: 1.5rem;
-    --seq-size-comp-md: 1.75rem;
-    --seq-size-comp-lg: 2.25rem;
-    --seq-size-comp-lgx: 3rem;
+    --seq-space-comp-size-sm: 1.5rem;
+    --seq-space-comp-size-md: 1.75rem;
+    --seq-space-comp-size-lg: 2.25rem;
+    --seq-space-comp-size-lgx: 3rem;
 
-    --seq-space-comp-x-sm: .5rem;
-    --seq-space-comp-x-md: .75rem;
-    --seq-space-comp-x-lg: 1rem;
-    --seq-space-comp-x-lgx: 1.25rem;
+    --seq-space-comp-box-x-sm: .5rem;
+    --seq-space-comp-box-x-md: .75rem;
+    --seq-space-comp-box-x-lg: 1rem;
+    --seq-space-comp-box-x-lgx: 1.25rem;
 
-    --seq-space-comp-y-sm: .25rem;
-    --seq-space-comp-y-md: .375rem;
-    --seq-space-comp-y-lg: .625rem;
-    --seq-space-comp-y-lgx: .75rem;
+    --seq-space-comp-box-y-sm: .25rem;
+    --seq-space-comp-box-y-md: .375rem;
+    --seq-space-comp-box-y-lg: .625rem;
+    --seq-space-comp-box-y-lgx: .75rem;
 
-    --seq-gap-comp-sm: .25rem;
-    --seq-gap-comp-md: .375rem;
-    --seq-gap-comp-lg: .5rem;
-    --seq-gap-comp-lgx: .625rem;
+    --seq-space-comp-gap-sm: .25rem;
+    --seq-space-comp-gap-md: .375rem;
+    --seq-space-comp-gap-lg: .5rem;
+    --seq-space-comp-gap-lgx: .625rem;
 
     /* 全局 */
-    --seq-space-global-1: .125rem;
-    --seq-space-global-2: .25rem;
-    --seq-space-global-3: .375rem;
-    --seq-space-global-4: .5rem;
-    --seq-space-global-5: .625rem;
-    --seq-space-global-6: .75rem;
-    --seq-space-global-8: 1rem;
-    --seq-space-global-10: 1.25rem;
-    --seq-space-global-16: 2rem;
-    --seq-space-global-20: 2.5rem;
+    --seq-space-global-box-1: .125rem;
+    --seq-space-global-box-2: .25rem;
+    --seq-space-global-box-3: .375rem;
+    --seq-space-global-box-4: .5rem;
+    --seq-space-global-box-5: .625rem;
+    --seq-space-global-box-6: .75rem;
+    --seq-space-global-box-8: 1rem;
+    --seq-space-global-box-10: 1.25rem;
+    --seq-space-global-box-16: 2rem;
+    --seq-space-global-box-20: 2.5rem;
 
-    --seq-gap-global-1: .125rem;
-    --seq-gap-global-2: .25rem;
-    --seq-gap-global-3: .375rem;
-    --seq-gap-global-4: .5rem;
-    --seq-gap-global-5: .625rem;
-    --seq-gap-global-6: .75rem;
-    --seq-gap-global-8: 1rem;
-    --seq-gap-global-10: 1.25rem;
-    --seq-gap-global-16: 2rem;
-    --seq-gap-global-20: 2.5rem;
+    --seq-space-global-gap-1: .125rem;
+    --seq-space-global-gap-2: .25rem;
+    --seq-space-global-gap-3: .375rem;
+    --seq-space-global-gap-4: .5rem;
+    --seq-space-global-gap-5: .625rem;
+    --seq-space-global-gap-6: .75rem;
+    --seq-space-global-gap-8: 1rem;
+    --seq-space-global-gap-10: 1.25rem;
+    --seq-space-global-gap-16: 2rem;
+    --seq-space-global-gap-20: 2.5rem;
 
-    --seq-radius-0: 0rem;
-    --seq-radius-33: .25rem;
-    --seq-radius-66: .5rem;
-    --seq-radius-83: .625rem;
-    --seq-radius-100: .75rem;
-    --seq-radius-200: 1.5rem;
-    --seq-radius-300: 2.25rem;
-    --seq-radius-400: 3rem;
+    --seq-global-radius-0: 0rem;
+    --seq-global-radius-33: .25rem;
+    --seq-global-radius-66: .5rem;
+    --seq-global-radius-83: .625rem;
+    --seq-global-radius-100: .75rem;
+    --seq-global-radius-200: 1.5rem;
+    --seq-global-radius-300: 2.25rem;
+    --seq-global-radius-400: 3rem;
 
     --seq-font-size-footnote: .75rem;
     --seq-font-size-body: .875rem;

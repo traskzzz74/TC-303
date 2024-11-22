@@ -97,7 +97,7 @@ const handleClick = () => {
   overflow: hidden;
   cursor: pointer;
   border: none;
-  border-radius: var(--seq-radius-400);
+  border-radius: var(--seq-global-radius-400);
   text-align: center;
   transition: all var(--seq-transition-default);
 
@@ -112,24 +112,24 @@ const handleClick = () => {
     line-height: var(--seq-font-line-height-body);
   }
   &.sm {
-    gap: var(--seq-gap-comp-sm);
-    height: var(--seq-size-comp-sm);
-    padding: 0 var(--seq-space-comp-x-sm);
+    gap: var(--seq-space-comp-gap-sm);
+    height: var(--seq-space-comp-size-sm);
+    padding: 0 var(--seq-space-comp-box-x-sm);
   }
   &.md {
-    gap: var(--seq-gap-comp-md);
-    height: var(--seq-size-comp-md);
-    padding: 0 var(--seq-space-comp-x-md);
+    gap: var(--seq-space-comp-gap-md);
+    height: var(--seq-space-comp-size-md);
+    padding: 0 var(--seq-space-comp-box-x-md);
   }
   &.lg {
-    gap: var(--seq-gap-comp-lg);
-    height: var(--seq-size-comp-lg);
-    padding: 0 var(--seq-space-comp-x-lg);
+    gap: var(--seq-space-comp-gap-lg);
+    height: var(--seq-space-comp-size-lg);
+    padding: 0 var(--seq-space-comp-box-x-lg);
   }
   &.lgx {
-    gap: var(--seq-gap-comp-lgx);
-    height: var(--seq-size-comp-lgx);
-    padding: 0 var(--seq-space-comp-x-lgx);
+    gap: var(--seq-space-comp-gap-lgx);
+    height: var(--seq-space-comp-size-lgx);
+    padding: 0 var(--seq-space-comp-box-x-lgx);
     font-size: var(--seq-font-size-h3);
     font-weight: bold;
     line-height: var(--seq-font-line-height-h3);

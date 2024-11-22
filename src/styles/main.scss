@@ -2,6 +2,8 @@
 @use './blendstroke.scss';
 
 :root {
+  background: linear-gradient(180deg, #0F2220 0%, #09191C 100%);
+
   blockquote,dd,dl,fieldset,figure,ol,ul,li,h1,h2,h3,h4,h5,h6,hr,p,pre {
     margin: 0;
   }
@@ -32,10 +34,6 @@
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
-}
-
-html {
-  background: linear-gradient(180deg, #0F2220 0%, #09191C 100%);
 }
 
 * {
@@ -76,50 +74,48 @@ button {
   align-self: stretch;
 
   .item {
+    display: inherit;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: inherit;
+    padding-bottom: 1.25rem;
+    gap: 1.25rem;
+    background: var(--seq-color-white-10);
+    border-radius: var(--seq-radius-200);
+    border: 1px solid var(--seq-color-stroke-divider-2);
+    
+    .head {
       display: inherit;
-      flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       align-self: inherit;
-      padding-bottom: 1.25rem;
-      gap: 1.25rem;
-      background: var(--seq-color-white-10);
-      border-radius: var(--seq-radius-200);
-      border: 1px solid var(--seq-color-stroke-divider-2);
+      height: 3rem;
+      padding: 0rem 1.25rem;
+      border-top: 1px solid var(--seq-color-stroke-divider-2);
+      border-bottom: 1px solid var(--seq-color-stroke-divider-2);
 
-      .head {
-          display: inherit;
-          align-items: center;
-          align-self: inherit;
-          height: 3rem;
-          padding: 0rem 1.25rem;;
-          border-top: 1px solid var(--seq-color-stroke-divider-2);
-          border-bottom: 1px solid var(--seq-color-stroke-divider-2);
-
-          &:first-child {
-            border-top: none;
-          }
+      &:first-child {
+        border-top: none;
       }
+    }
 
-      .item-set {
-          display: inherit;
-          justify-content: space-between;
-          align-items: center;
-          align-self: inherit;
+    .item-set {
+      display: inherit;
+      justify-content: space-between;
+      align-items: center;
+      align-self: inherit;
+    }
+
+    .item-set-det {
+      display: inherit ;
+      flex: 1 0 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--seq-gapping-md);
+
+      p {
+        color: var(--seq-color-text-tertiary);
       }
-
-      .item-set-det {
-          display: inherit ;
-          flex: 1 0 0;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: var(--seq-gapping-md);
-
-          p {
-              color: var(--seq-color-text-tertiary);
-          }
-      }
+    }
   }
-
-
 }

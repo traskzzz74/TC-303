@@ -2,11 +2,11 @@
   <span 
     class="seq-tag"
     :class="[
-      `seq-tag-${size}`,
-      `seq-tag-${type}`,
+      customClass,
       {
         'is-closable': closable,
-        'is-disabled': disabled
+        'is-disabled': disabled,
+        'seq-tag-select': isSelect
       }
     ]"
   >
@@ -14,8 +14,8 @@
     <iconpark-icon 
       v-if="closable"
       name="outline-clear"
-      class="seq-tag-close"
-      @click.stop="!disabled && handleClose"
+      :class="[isSelect ? 'seq-tag-select-close' : 'seq-tag-close']"
+      @click.stop="handleClose($event)"
     />
   </span>
 </template>
@@ -24,16 +24,6 @@
 export default {
   name: 'SeqTag',
   props: {
-    type: {
-      type: String,
-      default: 'default',
-      validator: (value) => ['default', 'primary', 'success', 'warning', 'danger'].includes(value)
-    },
-    size: {
-      type: String,
-      default: 'md',
-      validator: (value) => ['sm', 'md', 'lg'].includes(value)
-    },
     closable: {
       type: Boolean,
       default: false
@@ -41,10 +31,19 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    isSelect: {
+      type: Boolean,
+      default: false
+    },
+    customClass: {
+      type: [String, Object],
+      default: ''
     }
   },
   methods: {
     handleClose(event) {
+      if (this.disabled) return
       this.$emit('close', event)
     }
   }
@@ -56,41 +55,85 @@ export default {
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
+  gap: var(--seq-space-global-gap-2);
 
-  &-sm, &-md, &-lg {
-    align-self: stretch;
-    gap: var(--seq-gap-global-2);
+  &.sm {
+    padding: 0 var(--seq-space-comp-box-x-sm);
+    border-radius: var(--seq-global-radius-33);
     font-size: var(--seq-font-size-body);
     line-height: var(--seq-font-line-height-body);
   }
-
-  &-sm {
-    padding: 0 var(--seq-space-comp-x-sm);
-    border-radius: var(--seq-radius-33);
+  &.md {
+    padding: 0 var(--seq-space-comp-box-x-md);
+    border-radius: var(--seq-global-radius-66);
+    font-size: var(--seq-font-size-body);
+    line-height: var(--seq-font-line-height-body);
   }
-  &-md {
-    padding: 0 var(--seq-space-comp-x-md);
-    border-radius: var(--seq-radius-66);
+  &.lg {
+    padding: 0 var(--seq-space-comp-box-x-lg);
+    border-radius: var(--seq-global-radius-66);
+    font-size: var(--seq-font-size-body);
+    line-height: var(--seq-font-line-height-body);
   }
-  &-lg {
-    padding: 0 var(--seq-space-comp-x-lg);
-    border-radius: var(--seq-radius-66);
-  }
-  &-lgx {
-    align-self: stretch;
-    padding: 0 var(--seq-space-comp-x-lgx);
+  &.lgx {
+    padding: 0 var(--seq-space-comp-box-x-lgx);
+    border-radius: var(--seq-global-radius-66);
     font-size: var(--seq-font-size-lgx);
     line-height: var(--seq-font-line-height-lgx);
   }
 
-
-  &-default {
-    border: 1px solid var(--seq-color-stroke-divider-2);
-    background: var(--seq-color-bg-index-1);
-    color: inherit;
+  &.primary {
+    background: var(--seq-color-bg-brand-1);
+    color: var(--seq-color-text-white);
+  }
+  &.secondary {
+    background: var(--seq-color-bg-brand-3);
+    color: var(--seq-color-text-brand);
   }
 
-  &-close {
+  .seq-tag-close {
+    color: currentColor;
+    cursor: pointer;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: var(--seq-opacity-disabled);
+
+    .seq-tag-close {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.seq-tag-select {
+  display: inline-flex;
+  align-items: center;
+  align-self: stretch;
+  white-space: nowrap;
+  padding: 0 var(--seq-space-comp-box-x-sm);
+  border: 1px solid var(--seq-color-stroke-divider-2);
+  background: var(--seq-color-bg-index-1);
+  font-size: var(--seq-font-size-body);
+  line-height: var(--seq-font-line-height-body);
+  gap: var(--seq-space-global-gap-2);
+
+  .seq-select-sm & {
+    border-radius: calc(var(--seq-global-radius-66) - 0.0625rem);
+  }
+  .seq-select-md & {
+    border-radius: calc(var(--seq-global-radius-66) - 0.0625rem);
+  }
+  .seq-select-lg & {
+    border-radius: calc(var(--seq-global-radius-83) - 0.0625rem);
+  }
+
+  .seq-tag-select-close {
     color: var(--seq-color-text-tertiary);
     cursor: pointer;
 
@@ -99,13 +142,9 @@ export default {
     }
   }
 
-  &.is-disabled {
+  &.is-disabled .seq-tag-select-close {
     cursor: not-allowed;
-
-    .seq-tag-close {
-      cursor: inherit;
-      color: var(--seq-color-text-disabled);
-    }
+    color: var(--seq-color-text-disabled);
   }
 }
 </style> 

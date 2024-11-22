@@ -24,10 +24,10 @@
           <seq-tag
             v-for="option in selectedOptions"
             :key="option.value"
-            :size="tagSize"
             :disabled="disabled"
+            :is-select="true"
             closable
-            @close="removeOption(option)"
+            @close="(event) => removeOption(option, event)"
           >
             {{ option.label }}
           </seq-tag>
@@ -195,8 +195,11 @@ export default {
     handleOptionLeave() {
       this.currentHoverValue = null
     },
-    removeOption(option) {
+    removeOption(option, event) {
       if (this.disabled) return
+      if (event) {
+        event.stopPropagation()
+      }
       const newValue = this.modelValue.filter(v => v !== option.value)
       this.$emit('update:modelValue', newValue)
     },
@@ -226,26 +229,26 @@ export default {
   
   &-sm {
     .seq-select-trigger {
-      gap: var(--seq-gap-comp-sm);
-      padding: 0 var(--seq-space-comp-x-sm);
-      border-radius: var(--seq-radius-66);
-      height: var(--seq-size-comp-sm);
+      gap: var(--seq-space-comp-gap-sm);
+      padding: 0 var(--seq-space-comp-box-x-sm);
+      border-radius: var(--seq-global-radius-66);
+      height: var(--seq-space-comp-size-sm);
     }
   }
   &-md {
     .seq-select-trigger {
-      gap: var(--seq-gap-comp-md);
-      padding: 0 var(--seq-space-comp-x-md);
-      border-radius: var(--seq-radius-83);
-      height: var(--seq-size-comp-md);
+      gap: var(--seq-space-comp-gap-md);
+      padding: 0 var(--seq-space-comp-box-x-md);
+      border-radius: var(--seq-global-radius-83);
+      height: var(--seq-space-comp-size-md);
     }
   }
   &-lg {
     .seq-select-trigger {
-      gap: var(--seq-gap-comp-lg);
-      padding: 0 var(--seq-space-comp-x-lg);
-      border-radius: var(--seq-radius-100);
-      height: var(--seq-size-comp-lg);
+      gap: var(--seq-space-comp-gap-lg);
+      padding: 0 var(--seq-space-comp-box-x-lg);
+      border-radius: var(--seq-global-radius-100);
+      height: var(--seq-space-comp-size-lg);
     }
   }
   
@@ -297,14 +300,14 @@ export default {
 
   &-dropdown {
     position: absolute;
-    top: calc(100% + var(--seq-space-global-2));
+    top: calc(100% + var(--seq-space-global-box-2));
     left: 0;
     width: 100%;
     min-width: inherit;
     background: var(--seq-color-bg-index-1);
     backdrop-filter: var(--seq-effect-blur-md);
     border: 1px solid var(--seq-color-stroke-divider-1);
-    border-radius: var(--seq-radius-100);
+    border-radius: var(--seq-global-radius-100);
     z-index: 99;
     transform-origin: top;
     animation: dropdownIn var(--seq-transition-curve);
@@ -327,8 +330,8 @@ export default {
   }
 
   &-option {
-    padding: var(--seq-space-comp-y-md) var(--seq-space-comp-x-md);
-    border-radius: var(--seq-radius-100);
+    padding: var(--seq-space-comp-box-y-md) var(--seq-space-comp-box-x-md);
+    border-radius: var(--seq-global-radius-100);
     color: var(--seq-color-text-priamry);
     cursor: pointer;
 
@@ -350,36 +353,36 @@ export default {
     }
 
     &.seq-select-sm .seq-select-trigger {
-      padding: var(--seq-space-global-1) 
-               var(--seq-space-comp-x-sm) 
-               var(--seq-space-global-1) 
-               var(--seq-space-global-1);
+      padding: var(--seq-space-global-box-1) 
+               var(--seq-space-comp-box-x-sm) 
+               var(--seq-space-global-box-1) 
+               var(--seq-space-global-box-1);
 
       &.is-placeholder {
-        gap: var(--seq-gap-comp-sm);
-        padding: 0 var(--seq-space-comp-x-sm);
+        gap: var(--seq-space-comp-gap-sm);
+        padding: 0 var(--seq-space-comp-box-x-sm);
       }
     }
     &.seq-select-md .seq-select-trigger {
-      padding: var(--seq-space-global-1) 
-               var(--seq-space-comp-x-md) 
-               var(--seq-space-global-1) 
-               var(--seq-space-global-1);
+      padding: var(--seq-space-global-box-1) 
+               var(--seq-space-comp-box-x-md) 
+               var(--seq-space-global-box-1) 
+               var(--seq-space-global-box-1);
 
       &.is-placeholder {
-        gap: var(--seq-gap-comp-md);
-        padding: 0 var(--seq-space-comp-x-md);
+        gap: var(--seq-space-comp-gap-md);
+        padding: 0 var(--seq-space-comp-box-x-md);
       }
     }
     &.seq-select-lg .seq-select-trigger {
-      padding: var(--seq-space-global-1) 
-               var(--seq-space-comp-x-lg) 
-               var(--seq-space-global-1) 
-               var(--seq-space-global-1);
+      padding: var(--seq-space-global-box-1) 
+               var(--seq-space-comp-box-x-lg) 
+               var(--seq-space-global-box-1) 
+               var(--seq-space-global-box-1);
 
       &.is-placeholder {
-        gap: var(--seq-gap-comp-lg);
-        padding: 0 var(--seq-space-comp-x-lg);
+        gap: var(--seq-space-comp-gap-lg);
+        padding: 0 var(--seq-space-comp-box-x-lg);
       }
     }
 
@@ -387,15 +390,14 @@ export default {
       display: inherit;
       align-items: inherit;
       align-self: stretch;
-      gap: var(--seq-gap-global-1);
+      gap: var(--seq-space-global-gap-1);
     }
-
   }
 
   &-multiple-option {
     position: relative;
-    padding: var(--seq-space-comp-y-md) var(--seq-space-comp-x-md);
-    border-radius: var(--seq-radius-100);
+    padding: var(--seq-space-comp-box-y-md) var(--seq-space-comp-box-x-md);
+    border-radius: var(--seq-global-radius-100);
     color: var(--seq-color-text-priamry);
     cursor: pointer;
 
@@ -405,7 +407,7 @@ export default {
 
     &-icon {
       position: absolute;
-      right: var(--seq-space-comp-x-sm);
+      right: var(--seq-space-comp-box-x-sm);
       top: 50%;
       transform: translateY(-50%);
       color: var(--seq-color-brand);

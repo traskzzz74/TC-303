@@ -8,21 +8,21 @@
 
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base primary sm blendstroke-interactive">Button</Button>
+              <Button class="primary sm blendstroke-interactive">Button</Button>
               <p>primary_sm</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base primary md blendstroke-interactive">Button</Button>
+              <Button class="primary md blendstroke-interactive">Button</Button>
               <p>primary_md</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base primary lg blendstroke-interactive" icon="fill-sparkle">
+              <Button class="primary lg blendstroke-interactive" icon="fill-sparkle">
                 Button
               </Button>
               <p>primary_lg</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base primary lgx blendstroke-interactive" icon="fill-sparkle">
+              <Button class="primary lgx blendstroke-interactive" icon="fill-sparkle">
                 Button
               </Button>
               <p>primary_lgx</p>
@@ -31,21 +31,21 @@
 
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base primary sm blendstroke-interactive" disabled>Button</Button>
+              <Button class="primary sm blendstroke-interactive" disabled>Button</Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base primary md blendstroke-interactive" disabled>Button</Button>
+              <Button class="primary md blendstroke-interactive" disabled>Button</Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base primary lg blendstroke-interactive" icon="fill-sparkle" disabled>
+              <Button class="primary lg blendstroke-interactive" icon="fill-sparkle" disabled>
                 Button
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base primary lgx blendstroke-interactive" icon="fill-sparkle" disabled>
+              <Button class="primary lgx blendstroke-interactive" icon="fill-sparkle" disabled>
                 Button
               </Button>
               <p>--disabled</p>
@@ -54,21 +54,21 @@
           
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base secondary sm">Button</Button>
+              <Button class="secondary sm">Button</Button>
               <p>secondary_sm</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base secondary md">Button</Button>
+              <Button class="secondary md">Button</Button>
               <p>secondary_md</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base secondary lg" icon="fill-sparkle">
+              <Button class="secondary lg" icon="fill-sparkle">
                 Button
               </Button>
               <p>secondary_lg</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base secondary lgx" icon="fill-sparkle">
+              <Button class="secondary lgx" icon="fill-sparkle">
                 Button
               </Button>
               <p>secondary_lgx</p>
@@ -77,21 +77,21 @@
 
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base secondary sm" disabled>Button</Button>
+              <Button class="secondary sm" disabled>Button</Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base secondary md" disabled>Button</Button>
+              <Button class="secondary md" disabled>Button</Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base secondary lg" icon="fill-sparkle" disabled>
+              <Button class="secondary lg" icon="fill-sparkle" disabled>
                 Button
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base secondary lgx" icon="fill-sparkle" disabled>
+              <Button class="secondary lgx" icon="fill-sparkle" disabled>
                 Button
               </Button>
               <p>--disabled</p>
@@ -100,21 +100,21 @@
 
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base tertiary sm">Button</Button>
+              <Button class="tertiary sm">Button</Button>
               <p>tertiary_sm</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base tertiary md">Button</Button>
+              <Button class="tertiary md">Button</Button>
               <p>tertiary_md</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base tertiary lg" icon="fill-sparkle">
+              <Button class="tertiary lg" icon="fill-sparkle">
                 Button
               </Button>
               <p>tertiary_lg</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base tertiary lgx" icon="fill-sparkle">
+              <Button class="tertiary lgx" icon="fill-sparkle">
                 Button
               </Button>
               <p>tertiary_lgx</p>
@@ -123,21 +123,21 @@
 
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base tertiary sm" disabled>Button</Button>
+              <Button class="tertiary sm" disabled>Button</Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base tertiary md" disabled>Button</Button>
+              <Button class="tertiary md" disabled>Button</Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base tertiary lg" icon="fill-sparkle" disabled>
+              <Button class="tertiary lg" icon="fill-sparkle" disabled>
                 Button
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base tertiary lgx" icon="fill-sparkle" disabled>
+              <Button class="tertiary lgx" icon="fill-sparkle" disabled>
                 Button
               </Button>
               <p>--disabled</p>
@@ -148,22 +148,22 @@
 
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base is-circle primary sm blendstroke-interactive" icon="fill-send">
+              <Button class="is-circle primary sm blendstroke-interactive" icon="fill-send">
               </Button>
               <p>primary_sm</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle primary md blendstroke-interactive" icon="fill-send">
+              <Button class="is-circle primary md blendstroke-interactive" icon="fill-send">
               </Button>
               <p>primary_md</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle primary lg blendstroke-interactive" icon="fill-send">
+              <Button class="is-circle primary lg blendstroke-interactive" icon="fill-send">
               </Button>
               <p>primary_lg</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle primary lgx blendstroke-interactive" icon="fill-send">
+              <Button class="is-circle primary lgx blendstroke-interactive" icon="fill-send">
               </Button>
               <p>primary_lgx</p>
             </div>
@@ -171,22 +171,22 @@
 
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base is-circle primary sm blendstroke-interactive" icon="fill-send" disabled>
+              <Button class="is-circle primary sm blendstroke-interactive" icon="fill-send" disabled>
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle primary md blendstroke-interactive" icon="fill-send" disabled>
+              <Button class="is-circle primary md blendstroke-interactive" icon="fill-send" disabled>
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle primary lg blendstroke-interactive" icon="fill-send" disabled>
+              <Button class="is-circle primary lg blendstroke-interactive" icon="fill-send" disabled>
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle primary lgx blendstroke-interactive" icon="fill-send" disabled>
+              <Button class="is-circle primary lgx blendstroke-interactive" icon="fill-send" disabled>
               </Button>
               <p>--disabled</p>
             </div>
@@ -194,22 +194,22 @@
           
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base is-circle secondary sm" icon="fill-sparkle">
+              <Button class="is-circle secondary sm" icon="fill-sparkle">
               </Button>
               <p>secondary_sm</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle secondary md" icon="fill-sparkle">
+              <Button class="is-circle secondary md" icon="fill-sparkle">
               </Button>
               <p>secondary_md</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle secondary lg" icon="fill-sparkle">
+              <Button class="is-circle secondary lg" icon="fill-sparkle">
               </Button>
               <p>secondary_lg</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle secondary lgx" icon="fill-sparkle">
+              <Button class="is-circle secondary lgx" icon="fill-sparkle">
               </Button>
               <p>secondary_lgx</p>
             </div>
@@ -217,22 +217,22 @@
 
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base is-circle secondary sm" icon="fill-sparkle" disabled>
+              <Button class="is-circle secondary sm" icon="fill-sparkle" disabled>
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle secondary md" icon="fill-sparkle" disabled>
+              <Button class="is-circle secondary md" icon="fill-sparkle" disabled>
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle secondary lg" icon="fill-sparkle" disabled>
+              <Button class="is-circle secondary lg" icon="fill-sparkle" disabled>
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle secondary lgx" icon="fill-sparkle" disabled>
+              <Button class="is-circle secondary lgx" icon="fill-sparkle" disabled>
               </Button>
               <p>--disabled</p>
             </div>
@@ -240,22 +240,22 @@
 
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base is-circle tertiary sm" icon="fill-voice">
+              <Button class="is-circle tertiary sm" icon="fill-voice">
               </Button>
               <p>tertiary_sm</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle tertiary md" icon="fill-voice">
+              <Button class="is-circle tertiary md" icon="fill-voice">
               </Button>
               <p>tertiary_md</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle tertiary lg" icon="fill-voice">
+              <Button class="is-circle tertiary lg" icon="fill-voice">
               </Button>
               <p>tertiary_lg</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle tertiary lgx" icon="fill-voice">
+              <Button class="is-circle tertiary lgx" icon="fill-voice">
               </Button>
               <p>tertiary_lgx</p>
             </div>
@@ -263,22 +263,22 @@
 
           <div class="item-set">
             <div class="item-set-det">
-              <Button class="button-base is-circle tertiary sm" icon="fill-voice" disabled>
+              <Button class="is-circle tertiary sm" icon="fill-voice" disabled>
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle tertiary md" icon="fill-voice" disabled>
+              <Button class="is-circle tertiary md" icon="fill-voice" disabled>
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle tertiary lg" icon="fill-voice" disabled>
+              <Button class="is-circle tertiary lg" icon="fill-voice" disabled>
               </Button>
               <p>--disabled</p>
             </div>
             <div class="item-set-det">
-              <Button class="button-base is-circle tertiary lgx" icon="fill-voice" disabled>
+              <Button class="is-circle tertiary lgx" icon="fill-voice" disabled>
               </Button>
               <p>--disabled</p>
             </div>
